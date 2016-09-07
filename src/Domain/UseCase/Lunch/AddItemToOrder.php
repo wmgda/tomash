@@ -36,9 +36,9 @@ class AddItemToOrder
 
     public function execute(Command $command, Responder $responder)
     {
-        $this->order = $this->storage->load($command->getRestaurant());
-
         try {
+            $this->order = $this->storage->load($command->getRestaurant());
+
             $this->setMenuItem($command->getPosition());
             $this->order->add($command->getUser(), $this->menuItem);
             $this->storage->save($this->order);

@@ -33,10 +33,10 @@ class CollectBill
      */
     public function execute(Command $command, Responder $responder)
     {
-        $this->order = $this->storage->load($command->getRestaurant());
-
         $totalSum = 0.0;
         try {
+            $this->order = $this->storage->load($command->getRestaurant());
+
             foreach($this->order->getParticipants() as $participant) {
                 $totalSum += $participant->getSum();
             }

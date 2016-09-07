@@ -23,6 +23,13 @@ class CloseOrder
 
     public function execute(Command $command, Responder $responder)
     {
+        try {
+            $this->order = $this->storage->load($command->getRestaurant());
+            $this->storage->drop($command->getRestaurant());
+        } catch (\Exception $e) {
+            $responder->closingOrderFailed($e);
+        }
 
+        $responder->orderClosedSuccessfully($command->getRestaurant());
     }
 }
