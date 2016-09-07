@@ -5,12 +5,15 @@ namespace AppBundle\SlackCommand\Urlop;
 use AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
+use Domain\UseCase\Absence\TakeHoliday;
 use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
+class UrlopCommand extends AbstractCommand implements
+    TakeDelegation\Responder,
+    TakeHoliday\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {
@@ -21,7 +24,15 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
             preg_match('/urlop(?<date>.+)/', $message, $results);
             $period = $this->getPeriod($results['date']);
 
-            $this->reply('Udanego wypoczynku! :) :sunny:');
+            $useCase = new TakeHoliday(new AbsenceStorage());
+            $useCase->execute(
+                new TakeHoliday\Command(
+                    $user->getUsername(),
+                    $period['startDate'],
+                    $period['endDate']
+                ),
+                $this
+            );
         }
 
         $delegacjaRegex = Regex::match('/delegacja (.+)/', $message);
@@ -57,20 +68,23 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
         }
     }
 
-    /**
-     * Returned when delegation was taken successfully
-     */
     public function delegationTakenSuccessfully()
     {
         $this->reply('Nie wydaj za dużo! ;) :moneybag:');
     }
 
-    /**
-     * Returned when something goes wrong
-     * @param AbsenceException $exception
-     */
     public function failedToTakeDelegation(AbsenceException $exception)
     {
         $this->reply('Nigdzie nie jedziesz! Wracaj do roboty! :(');
+    }
+
+    public function holidayTakenSuccessfully()
+    {
+        $this->reply('Udanego wypoczynku! :) :sunny:');
+    }
+
+    public function failedToTakeHoliday(AbsenceException $exception)
+    {
+        $this->reply('W pracy nie pada!');
     }
 }
