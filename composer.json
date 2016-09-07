@@ -7,9 +7,6 @@
         "psr-4": { "": "src/" },
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
-    "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" }
-    },
     "require": {
         "php": ">=5.5.9",
         "symfony/symfony": "3.1.*",
@@ -53,7 +50,6 @@
         "symfony-bin-dir": "bin",
         "symfony-var-dir": "var",
         "symfony-web-dir": "web",
-        "symfony-tests-dir": "tests",
         "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
