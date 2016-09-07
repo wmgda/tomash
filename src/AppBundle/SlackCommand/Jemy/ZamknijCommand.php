@@ -18,7 +18,7 @@ class ZamknijCommand extends AbstractCommand implements CloseOrder\Responder
         $regex = Regex::match('/zamknij (\w+)/', $message);
 
         if ($regex->hasMatch()) {
-
+            $this->closeOrder($regex->group(1));
 
             return true;
         }
@@ -26,11 +26,27 @@ class ZamknijCommand extends AbstractCommand implements CloseOrder\Responder
         return false;
     }
 
-    public function closeOrder()
+    public function closeOrder(string $restaurant)
     {
         $command = new CloseOrder\Command($restaurant);
 
         $useCase = new CloseOrder(new OrderStorage());
         $useCase->execute($command, $this);
+    }
+
+    /**
+     * @param string $restaurantName
+     */
+    public function orderClosedSuccessfully(string $restaurantName)
+    {
+        $this->reply('Smacznego! :curry:');
+    }
+
+    /**
+     * @param \Exception $e
+     */
+    public function closingOrderFailed(\Exception $e)
+    {
+        $this->reply('Nie udało się zamknąć :(');
     }
 }

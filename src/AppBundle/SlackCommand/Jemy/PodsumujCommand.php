@@ -62,6 +62,6 @@ class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
 
     public function sumUpOrderFailed(\Exception $e)
     {
-        $this->reply('nie udało się podsumować zamówienia');
+        $this->reply('nie udało się wykonać polecenia');
     }
 }

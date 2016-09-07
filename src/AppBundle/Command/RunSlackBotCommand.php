@@ -6,6 +6,7 @@ use AppBundle\SlackCommand\Jemy\JemCommand;
 use AppBundle\SlackCommand\Jemy\JemyCommand;
 use AppBundle\SlackCommand\Jemy\PodsumujCommand;
 use AppBundle\SlackCommand\Jemy\WindykujCommand;
+use AppBundle\SlackCommand\Jemy\ZamknijCommand;
 use AppBundle\SlackCommand\PingCommand;
 use AppBundle\SlackCommand\Urlop\GdzieJestCommand;
 use AppBundle\SlackCommand\Urlop\NieobecniCommand;
@@ -53,6 +54,7 @@ class RunSlackBotCommand extends ContainerAwareCommand
                 new UrlopCommand($client),
                 new GdzieJestCommand($client),
                 new NieobecniCommand($client),
+                new ZamknijCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {

@@ -67,6 +67,6 @@ class WindykujCommand extends AbstractCommand implements CollectBill\Responder
 
     public function collectingBillFailed(\Exception $e)
     {
-        $this->reply('coś się zepsuło i nie działa');
+        $this->reply('nie udało się wykonać polecenia');
     }
 }

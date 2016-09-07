@@ -25,24 +25,29 @@ class SumUpOrder
 
     public function execute(Command $command, Responder $responder)
     {
-        $order = $this->storage->load($command->getRestaurant());
-        $items = [];
-        $summedItems = [];
+        try {
+            $order = $this->storage->load($command->getRestaurant());
+            $items = [];
+            $summedItems = [];
 
-        foreach ($order->getParticipants() as $participant) {
-            foreach ($participant->getItems() as $item) {
-                $items[] = $item;
-            }
-        }
-
-        /** @var MenuItem $item */
-        foreach ($items as $item) {
-            if (!array_key_exists($item->getPosition(), $summedItems)) {
-                $summedItems[$item->getPosition()] = ['qty' => 0, 'item' => $item];
+            foreach ($order->getParticipants() as $participant) {
+                foreach ($participant->getItems() as $item) {
+                    $items[] = $item;
+                }
             }
 
-            $summedItems[$item->getPosition()]['qty'] = $summedItems[$item->getPosition()]['qty'] + 1;
+            /** @var MenuItem $item */
+            foreach ($items as $item) {
+                if (!array_key_exists($item->getPosition(), $summedItems)) {
+                    $summedItems[$item->getPosition()] = ['qty' => 0, 'item' => $item];
+                }
+
+                $summedItems[$item->getPosition()]['qty'] = $summedItems[$item->getPosition()]['qty'] + 1;
+            }
+        } catch (\Exception $e) {
+            $responder->sumUpOrderFailed($e);
         }
+
 
         $responder->successfullySummedUpOrder($order, $summedItems);
     }
