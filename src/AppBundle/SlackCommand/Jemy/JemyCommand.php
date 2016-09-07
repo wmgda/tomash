@@ -19,7 +19,7 @@ class JemyCommand extends AbstractCommand implements InitializeOrder\Responder
     {
         parent::execute($message, $user, $channel);
 
-        $regex = Regex::match('/jemy (.+)/', $message);
+        $regex = Regex::match('/(?:jemy|zamawiamy) (.+)/iu', $message);
 
         if ($regex->hasMatch()) {
             $restaurant = $regex->group(1);
