@@ -2,14 +2,14 @@
 
 namespace Domain\UseCase\Lunch\InitializeOrder;
 
-use Domain\Model\Lunch\Restaurant;
+use Domain\Model\Lunch\Order;
 
 interface Responder
 {
     /**
-     * @param Restaurant $menu
+     * @param Order $order
      */
-    public function orderInitializedSuccessfully(Restaurant $restaurant);
+    public function orderInitializedSuccessfully(Order $order);
 
     /**
      * @param \Exception $e

@@ -3,6 +3,7 @@
 namespace Domain\UseCase\Lunch;
 
 use Domain\Exception\NotSupportedRestaurantException;
+use Domain\Model\Lunch\Order;
 use Domain\Model\Lunch\Restaurant;
 use Domain\UseCase\Lunch\InitializeOrder\Command;
 use Domain\UseCase\Lunch\InitializeOrder\Responder;
@@ -14,9 +15,9 @@ class InitializeOrder
     ];
 
     /**
-     * @var Restaurant
+     * @var Order
      */
-    private $restaurant;
+    private $order;
 
     /**
      * @param Command $command
@@ -28,15 +29,16 @@ class InitializeOrder
 
         try {
             $this->validateRestaurant($restaurantName);
-            $this->restaurant = new Restaurant(
+            $restaurant = new Restaurant(
                 $restaurantName,
                 static::$supportedRestaurants[$restaurantName]
             );
+            $this->order = new Order($restaurant);
         } catch (\Exception $e) {
             $responder->orderInitializationFailed($e);
         }
 
-        $responder->orderInitializedSuccessfully($this->restaurant);
+        $responder->orderInitializedSuccessfully($this->order);
     }
 
     /**
