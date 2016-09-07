@@ -8,6 +8,7 @@ use AppBundle\SlackCommand\Jemy\PodsumujCommand;
 use AppBundle\SlackCommand\Jemy\WindykujCommand;
 use AppBundle\SlackCommand\PingCommand;
 use AppBundle\SlackCommand\Urlop\GdzieJestCommand;
+use AppBundle\SlackCommand\Urlop\NieobecniCommand;
 use AppBundle\SlackCommand\Urlop\UrlopCommand;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -47,6 +48,7 @@ class RunSlackBotCommand extends ContainerAwareCommand
                 new WindykujCommand($client),
                 new UrlopCommand($client),
                 new GdzieJestCommand($client),
+                new NieobecniCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {

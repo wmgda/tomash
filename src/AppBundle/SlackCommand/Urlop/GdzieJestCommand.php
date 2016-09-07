@@ -16,8 +16,6 @@ class GdzieJestCommand extends AbstractCommand
         $gdzieJestRegex = Regex::match('/gdzie jest (.+)/', $message);
 
         if ($gdzieJestRegex->hasMatch()) {
-            var_dump('jestem');
-
             preg_match('/gdzie jest(?<name>.+)/', $message, $results);
             $name = trim($results['name']);
 
