@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b7b4f50ac2ac03c04f7f78e6715c45b9",
-    "content-hash": "8e728a74b59b516827b597a85f0669fc",
+    "hash": "48fb5e80a1c0fda1f31f2fb0ab74c7b1",
+    "content-hash": "ca03095e2424ef8d32f4a7db653a1e12",
     "packages": [
         {
             "name": "coderstephen/slack-client",
@@ -1209,6 +1209,63 @@
             "time": "2014-01-12 16:20:24"
         },
         {
+            "name": "league/csv",
+            "version": "8.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/thephpleague/csv.git",
+                "reference": "3b22a40804aa0bc5224ffb2f5e8248edf0a9a38c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/thephpleague/csv/zipball/3b22a40804aa0bc5224ffb2f5e8248edf0a9a38c",
+                "reference": "3b22a40804aa0bc5224ffb2f5e8248edf0a9a38c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.9",
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "8.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "League\\Csv\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ignace Nyamagana Butera",
+                    "email": "nyamsprod@gmail.com",
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Csv data manipulation made easy in PHP",
+            "homepage": "http://csv.thephpleague.com",
+            "keywords": [
+                "csv",
+                "export",
+                "filter",
+                "import",
+                "read",
+                "write"
+            ],
+            "time": "2016-09-05 08:16:07"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.21.0",
             "source": {
@@ -1756,16 +1813,16 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v5.0.8",
+            "version": "v5.0.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "f8ace5c71ee309492b027ef71215577f5a52b4ea"
+                "reference": "e5e0d8d06b07864b2752bd865537b0817edf4c5a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/f8ace5c71ee309492b027ef71215577f5a52b4ea",
-                "reference": "f8ace5c71ee309492b027ef71215577f5a52b4ea",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e5e0d8d06b07864b2752bd865537b0817edf4c5a",
+                "reference": "e5e0d8d06b07864b2752bd865537b0817edf4c5a",
                 "shasum": ""
             },
             "require": {
@@ -1804,7 +1861,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2016-08-17 18:16:49"
+            "time": "2016-09-06 01:05:01"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -2809,29 +2866,31 @@
         },
         {
             "name": "zendframework/zend-log",
-            "version": "2.8.3",
+            "version": "2.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zend-log.git",
-                "reference": "78712a83261739f0c7bc5718c8cb9514b58e6a0d"
+                "reference": "115d75db1f8fb29efbf1b9a49cb91c662b7195dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zend-log/zipball/78712a83261739f0c7bc5718c8cb9514b58e6a0d",
-                "reference": "78712a83261739f0c7bc5718c8cb9514b58e6a0d",
+                "url": "https://api.github.com/repos/zendframework/zend-log/zipball/115d75db1f8fb29efbf1b9a49cb91c662b7195dc",
+                "reference": "115d75db1f8fb29efbf1b9a49cb91c662b7195dc",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.5 || ^7.0",
+                "php": "^5.6 || ^7.0",
                 "psr/log": "^1.0",
                 "zendframework/zend-servicemanager": "^2.7.5 || ^3.0.3",
                 "zendframework/zend-stdlib": "^2.7 || ^3.0"
             },
+            "provide": {
+                "psr/log-implementation": "1.0.0"
+            },
             "require-dev": {
-                "fabpot/php-cs-fixer": "1.7.*",
+                "friendsofphp/php-cs-fixer": "~1.7.0",
                 "mikey179/vfsstream": "^1.6",
                 "phpunit/phpunit": "~4.0",
-                "zendframework/zend-console": "^2.6",
                 "zendframework/zend-db": "^2.6",
                 "zendframework/zend-escaper": "^2.5",
                 "zendframework/zend-filter": "^2.5",
@@ -2839,7 +2898,8 @@
                 "zendframework/zend-validator": "^2.6"
             },
             "suggest": {
-                "ext-mongo": "mongodb extension to use MongoDB writer",
+                "ext-mongo": "mongo extension to use Mongo writer",
+                "ext-mongodb": "mongodb extension to use MongoDB writer",
                 "zendframework/zend-console": "Zend\\Console component to use the RequestID log processor",
                 "zendframework/zend-db": "Zend\\Db component to use the database log writer",
                 "zendframework/zend-escaper": "Zend\\Escaper component, for use in the XML log formatter",
@@ -2849,8 +2909,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.8-dev",
-                    "dev-develop": "2.9-dev"
+                    "dev-master": "2.9-dev",
+                    "dev-develop": "2.10-dev"
                 },
                 "zf": {
                     "component": "Zend\\Log",
@@ -2873,7 +2933,7 @@
                 "logging",
                 "zf2"
             ],
-            "time": "2016-05-25 12:20:07"
+            "time": "2016-08-11 13:44:10"
         },
         {
             "name": "zendframework/zend-servicemanager",
@@ -3097,16 +3157,16 @@
     "packages-dev": [
         {
             "name": "sensio/generator-bundle",
-            "version": "v3.0.7",
+            "version": "v3.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "d1be460925376703a470a3ac6ec034eb7eab3892"
+                "reference": "3c20d16512f37d2be159eca0411b99a141b90fa4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/d1be460925376703a470a3ac6ec034eb7eab3892",
-                "reference": "d1be460925376703a470a3ac6ec034eb7eab3892",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/3c20d16512f37d2be159eca0411b99a141b90fa4",
+                "reference": "3c20d16512f37d2be159eca0411b99a141b90fa4",
                 "shasum": ""
             },
             "require": {
@@ -3145,7 +3205,7 @@
                 }
             ],
             "description": "This bundle generates code for you",
-            "time": "2016-06-20 05:58:05"
+            "time": "2016-09-06 01:30:19"
         },
         {
             "name": "symfony/phpunit-bridge",

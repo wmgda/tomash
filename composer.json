@@ -20,7 +20,8 @@
         "sensio/framework-extra-bundle": "^3.0.2",
         "incenteev/composer-parameter-handler": "^2.0",
         "coderstephen/slack-client": "^0.2.4",
-        "spatie/regex": "^1.0"
+        "spatie/regex": "^1.0",
+        "league/csv": "^8.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
