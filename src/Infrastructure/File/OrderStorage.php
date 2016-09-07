@@ -3,7 +3,6 @@
 namespace Infrastructure\File;
 
 use Domain\Model\Lunch\Order;
-use Domain\Storage\string;
 
 class OrderStorage implements \Domain\Storage\OrderStorage
 {

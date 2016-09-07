@@ -15,12 +15,18 @@ class Participant
     private $items;
 
     /**
+     * @var float
+     */
+    private $sum;
+
+    /**
      * @param string $name
      */
     public function __construct(string $name)
     {
         $this->name = $name;
         $this->items = [];
+        $this->sum = 0.0;
     }
 
     /**
@@ -45,5 +51,22 @@ class Participant
     public function addItem(MenuItem $position)
     {
         $this->items[] = $position;
+        $this->increaseSum($position->getPrice()->toFloat());
+    }
+
+    /**
+     * @param float $price
+     */
+    public function increaseSum(float $price)
+    {
+        $this->sum += $price;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSum() : float
+    {
+        return $this->sum;
     }
 }

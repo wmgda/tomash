@@ -2,9 +2,7 @@
 
 namespace Domain\UseCase\Lunch;
 
-use Domain\Exception\ParticipantDoesNotExistException;
 use Domain\Model\Lunch\Order;
-use Domain\Model\Lunch\Participant;
 use Domain\Storage\OrderStorage;
 use Domain\UseCase\Lunch\CollectBill\Command;
 use Domain\UseCase\Lunch\CollectBill\Responder;
@@ -15,11 +13,6 @@ class CollectBill
      * @var Order
      */
     private $order;
-
-    /**
-     * @var Participant
-     */
-    private $participant;
 
     /**
      * @var OrderStorage
@@ -41,30 +34,16 @@ class CollectBill
     public function execute(Command $command, Responder $responder)
     {
         $this->order = $this->storage->load($command->getRestaurant());
-        $user = $command->getUser();
 
+        $totalSum = 0.0;
         try {
-            $this->setParticipant($user);
-            $totalSum = 0.0;
-            foreach($this->participant->getItems() as $menuItem) {
-                $totalSum += $menuItem->getPrice()->toFloat();
+            foreach($this->order->getParticipants() as $participant) {
+                $totalSum += $participant->getSum();
             }
         } catch (\Exception $e) {
             $responder->collectingBillFailed($e);
         }
 
-        $responder->billCollectedSuccessfully($this->order, $this->participant, $totalSum);
-    }
-
-    /**
-     * @param string $user
-     */
-    private function setParticipant(string $user)
-    {
-        if (!array_key_exists($user, $this->order->getParticipants())) {
-            throw new ParticipantDoesNotExistException($user);
-        }
-
-        $this->participant = $this->order->getParticipants()[$user];
+        $responder->billCollectedSuccessfully($this->order, $totalSum);
     }
 }

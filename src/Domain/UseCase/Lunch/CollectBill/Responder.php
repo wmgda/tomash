@@ -9,10 +9,9 @@ interface Responder
 {
     /**
      * @param Order $order
-     * @param Participant $participant
      * @param float $totalSum
      */
-    public function billCollectedSuccessfully(Order $order, Participant $participant, float $totalSum);
+    public function billCollectedSuccessfully(Order $order, float $totalSum);
 
     /**
      * @param \Exception $e
