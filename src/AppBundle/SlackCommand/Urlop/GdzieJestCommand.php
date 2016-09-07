@@ -3,11 +3,14 @@
 namespace AppBundle\SlackCommand\Urlop;
 
 use AppBundle\SlackCommand\AbstractCommand;
+use Domain\Model\Absence\Absence;
+use Domain\UseCase\Absence\WhereIs;
+use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class GdzieJestCommand extends AbstractCommand
+class GdzieJestCommand extends AbstractCommand implements WhereIs\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {
@@ -19,7 +22,18 @@ class GdzieJestCommand extends AbstractCommand
             preg_match('/gdzie jest(?<name>.+)/', $message, $results);
             $name = trim($results['name']);
 
-            $this->reply($name . ' jest dzisiaj w domu');
+            $useCase = new WhereIs(new AbsenceStorage());
+            $useCase->execute(new WhereIs\Command(new \DateTime(), $name), $this);
         }
+    }
+
+    public function entryNotFoundForPerson(string $person)
+    {
+        $this->reply($person.' jest (powinien/powinna być) dzisiaj w pracy!');
+    }
+
+    public function personIs(array $absenceData)
+    {
+        $this->reply($absenceData['person'].' '.Absence::reason($absenceData['type']));
     }
 }
