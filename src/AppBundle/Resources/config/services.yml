@@ -1,0 +1,23 @@
+services:
+    absence_storage:
+        class: Infrastructure\File\AbsenceStorage
+
+    use_case.take_delegation:
+        class: Domain\UseCase\Absence\TakeDelegation
+        arguments:
+            - '@absence_storage'
+
+    use_case.teke_holiday:
+        class: Domain\UseCase\Absence\TakeHoliday
+        arguments:
+            - '@absence_storage'
+
+    use_case.take_sick_leave:
+        class: Domain\UseCase\Absence\TakeSickLeave
+        arguments:
+            - '@absence_storage'
+
+    use_case.work_from_home:
+        class: Domain\UseCase\Absence\WorkFromHome
+        arguments:
+            - '@absence_storage'

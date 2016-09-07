@@ -1,15 +1,10 @@
 .idea/
 /web/bundles/
-/app/bootstrap.php.cache
-/app/cache/*
 /app/config/parameters.yml
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
-/app/phpunit.xml
 /build/
 /vendor/
 /composer.phar
 /var/cache
 /var/logs
 /var/sessions
+/var/bootstrap.php.cache
