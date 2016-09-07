@@ -7,4 +7,5 @@
 /var/cache
 /var/logs
 /var/sessions
+/var/storage
 /var/bootstrap.php.cache

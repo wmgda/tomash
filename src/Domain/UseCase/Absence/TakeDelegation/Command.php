@@ -11,19 +11,26 @@ class Command
     private $person;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $date;
+    private $dateStart;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateEnd;
 
     /**
      * Command constructor.
      * @param string $person
-     * @param string $date
+     * @param \DateTime $dateStart
+     * @param \DateTime $dateEnd
      */
-    public function __construct(string $person, string $date)
+    public function __construct(string $person, \DateTime $dateStart, \DateTime $dateEnd)
     {
         $this->person = $person;
-        $this->date = $date;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
     }
 
     /**
@@ -35,10 +42,18 @@ class Command
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
-    public function getDate(): string
+    public function getDateStart(): \DateTime
     {
-        return $this->date;
+        return $this->dateStart;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateEnd(): \DateTime
+    {
+        return $this->dateEnd;
     }
 }

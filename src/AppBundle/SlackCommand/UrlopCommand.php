@@ -29,7 +29,14 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
             $period = $this->getPeriod($results['date']);
 
             $useCase = new TakeDelegation(new AbsenceStorage());
-            $useCase->execute(new TakeDelegation\Command($user->getUsername(), $period['startDate']), $this);
+            $useCase->execute(
+                new TakeDelegation\Command(
+                    $user->getUsername(),
+                    $period['startDate'],
+                    $period['endDate']
+                ),
+                $this
+            );
         }
 
         $wfhRegex = Regex::match('/wfh (.+)/', $message);
@@ -63,7 +70,7 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
      */
     public function failedToTakeDelegation(AbsenceException $exception)
     {
-        $this->reply('Coś się zjebało :(');
+        $this->reply('Nigdzie nie jedziesz! Wracaj do roboty! :(');
     }
 
     private function getPeriod(string $date)
@@ -98,6 +105,10 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
             $monthStart = $datesRegex->group(2);
 
             $startDate = new \DateTime($monthStart . '/' . $dayStart);
+        }
+
+        if (empty($endDate)) {
+            $endDate = $startDate;
         }
 
         return ['startDate' => $startDate, 'endDate' => $endDate];
