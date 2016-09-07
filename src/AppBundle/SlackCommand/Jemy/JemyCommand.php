@@ -7,6 +7,8 @@ use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\InitializeOrder;
 use Slack\Channel;
+use Slack\Message\Attachment;
+use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
@@ -38,7 +40,29 @@ class JemyCommand extends AbstractCommand implements InitializeOrder\Responder
 
     public function orderInitializedSuccessfully(Order $order)
     {
-        $this->reply('OK, zbieram zamówienia do #'. $order->getRestaurant()->getName());
+        $restaurant = $order->getRestaurant();
+
+        $this->advancedReply(function (MessageBuilder $builder) use ($order, $restaurant) {
+            $menuItems = [];
+            $text = 'OK, zbieram zamówienia do #'. $restaurant->getName();
+            $builder->setText('<@' . $this->user->getId() . '> ' . $text);
+
+            foreach ($restaurant->getMenu() as $menuItem) {
+                $price = $menuItem->getPrice()->getZl() . ',' . $menuItem->getPrice()->getGr() . ' zł';
+
+                $menuItems[] = sprintf(
+                    '%d. %s [%s]',
+                    $menuItem->getPosition(),
+                    $menuItem->getName(),
+                    $price
+                );
+            }
+
+            $attachment = new Attachment($restaurant->getFullName() .' Menu', implode($menuItems, "\n"));
+            $builder->addAttachment($attachment);
+
+            return $builder;
+        });
     }
 
     public function orderInitializationFailed(\Exception $e)

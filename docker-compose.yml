@@ -5,4 +5,3 @@ php:
   environment:
     XDEBUG_CONFIG: remote_host=192.168.99.1
     PHP_IDE_CONFIG: serverName=tomash
-
