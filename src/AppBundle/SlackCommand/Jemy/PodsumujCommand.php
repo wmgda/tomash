@@ -4,6 +4,7 @@ namespace AppBundle\SlackCommand\Jemy;
 
 use AppBundle\SlackCommand\AbstractCommand;
 use Domain\UseCase\Lunch\SumUpOrder;
+use Infrastructure\File\OrderStorage;
 use Slack\Channel;
 use Slack\User;
 use Spatie\Regex\Regex;
@@ -29,7 +30,7 @@ class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
     {
         $command = new SumUpOrder\Command();
 
-        $useCase = new SumUpOrder();
+        $useCase = new SumUpOrder(new OrderStorage());
         $useCase->execute($command, $this);
     }
 }
