@@ -50,7 +50,7 @@ class WindykujCommand extends AbstractCommand implements CollectBill\Responder
                 $sum = 0;
 
                 foreach ($participant->getItems() as $item) {
-                    $sum =+ $item->getPrice()->toFloat();
+                    $sum += $item->getPrice()->toFloat();
                 }
 
                 $lines[] = sprintf(
