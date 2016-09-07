@@ -34,6 +34,10 @@ class RunSlackBotCommand extends ContainerAwareCommand
         $client->setToken($input->getArgument('token'));
 
         $client->on('message', function ($data) use ($client) {
+            if (!$data['text']) {
+                return;
+            }
+
             $message = $this->parseMessage($data['text']);
 
             if (!$message) {
