@@ -14,6 +14,7 @@ class AbsenceStorage
     public function add(Absence $absence)
     {
         $writer = Writer::createFromPath(new SplTempFileObject(self::$file, 'a+'));
+
         $writer->insertOne($absence->toArray());
     }
 }
