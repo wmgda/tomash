@@ -3,6 +3,8 @@
 namespace AppBundle\SlackCommand\Jemy;
 
 use AppBundle\SlackCommand\AbstractCommand;
+use Domain\Model\Lunch\MenuItem;
+use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder;
 use Slack\Channel;
 use Slack\User;
@@ -31,5 +33,15 @@ class JemCommand extends AbstractCommand implements AddItemToOrder\Responder
 
         $useCase = new AddItemToOrder();
         $useCase->execute($command, $this);
+    }
+
+    public function successfullyAddedItemToOrder(Order $order, string $userName, MenuItem $addedMenuItem)
+    {
+        // TODO: Implement successfullyAddedItemToOrder() method.
+    }
+
+    public function addingItemToOrderFailed(\Exception $e)
+    {
+        // TODO: Implement addingItemToOrderFailed() method.
     }
 }
