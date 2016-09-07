@@ -7,6 +7,7 @@ use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
 use Domain\UseCase\Absence\TakeSickLeave;
+use Domain\UseCase\Absence\WorkFromHome;
 use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
@@ -15,7 +16,8 @@ use Spatie\Regex\Regex;
 class UrlopCommand extends AbstractCommand implements
     TakeDelegation\Responder,
     TakeHoliday\Responder,
-    TakeSickLeave\Responder
+    TakeSickLeave\Responder,
+    WorkFromHome\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {
@@ -58,7 +60,15 @@ class UrlopCommand extends AbstractCommand implements
             preg_match('/wfh(?<date>.+)/', $message, $results);
             $period = $this->getPeriod($results['date']);
 
-            $this->reply('Mam nadzieję, że jednak będziesz pracował ;) :house:');
+            $useCase = new WorkFromHome(new AbsenceStorage());
+            $useCase->execute(
+                new WorkFromHome\Command(
+                    $user->getUsername(),
+                    $period['startDate'],
+                    $period['endDate']
+                ),
+                $this
+            );
         }
 
         $zwolnienieRegex = Regex::match('/zwolnienie (.+)/', $message);
@@ -106,5 +116,15 @@ class UrlopCommand extends AbstractCommand implements
     public function failedToTakeSickLeave(AbsenceException $exception)
     {
         $this->reply('Nie symuluj! Wracaj do roboty! :(');
+    }
+
+    public function failedToWorkFormHome(AbsenceException $exception)
+    {
+        $this->reply('Nie poradzimy sobie BEZ Ciebie!');
+    }
+
+    public function workFromHomeSuccessfully()
+    {
+        $this->reply('Mam nadzieję, że jednak będziesz pracował ;) :house:');
     }
 }
