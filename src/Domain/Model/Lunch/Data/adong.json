@@ -1,0 +1,26 @@
+[
+  {
+    "position": "1",
+    "name": "Kurczak pikantny",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": "2",
+    "name": "Kurczak czerwone curry po thailandzku",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "3",
+    "name": "3 sajgonki z surówką i ryżem",
+    "price": {
+      "zl": 12,
+      "gr": 50
+    }
+  }
+]
