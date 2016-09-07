@@ -22,5 +22,37 @@
       "zl": 12,
       "gr": 50
     }
+  },
+  {
+    "position": "4",
+    "name": "Kurczak w pięciu smakach",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "5",
+    "name": "Kurczak firmowy A'dong",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "6",
+    "name": "Filet chrupiący po thailandzku",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "7",
+    "name": "Żeberka po syczuańsku",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
   }
 ]

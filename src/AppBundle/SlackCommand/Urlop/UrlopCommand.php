@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand;
+namespace AppBundle\SlackCommand\Urlop;
 
+use AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Infrastructure\File\AbsenceStorage;
@@ -29,7 +30,14 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
             $period = $this->getPeriod($results['date']);
 
             $useCase = new TakeDelegation(new AbsenceStorage());
-            $useCase->execute(new TakeDelegation\Command($user->getUsername(), $period['startDate']), $this);
+            $useCase->execute(
+                new TakeDelegation\Command(
+                    $user->getUsername(),
+                    $period['startDate'],
+                    $period['endDate']
+                ),
+                $this
+            );
         }
 
         $wfhRegex = Regex::match('/wfh (.+)/', $message);
@@ -63,43 +71,6 @@ class UrlopCommand extends AbstractCommand implements TakeDelegation\Responder
      */
     public function failedToTakeDelegation(AbsenceException $exception)
     {
-        $this->reply('Coś się zjebało :(');
-    }
-
-    private function getPeriod(string $date)
-    {
-        $date = trim($date);
-
-        $startDate = null;
-        $endDate = null;
-
-        if ($date === 'jutro') {
-            $startDate = new \DateTime('+1 day');
-        }
-
-        if ($date === 'dziś' || $date === 'dzis' || $date === 'dzisiaj') {
-            $startDate = new \DateTime('now');
-        }
-
-        $datesRegex = Regex::match('/(\d{1,2}).(\d{1,2})-(\d{1,2}).(\d{1,2})/', $date);
-        if ($datesRegex->hasMatch()) {
-            $dayStart = $datesRegex->group(1);
-            $monthStart = $datesRegex->group(2);
-            $dayEnd = $datesRegex->group(3);
-            $monthEnd = $datesRegex->group(4);
-
-            $startDate = new \DateTime($monthStart . '/' . $dayStart);
-            $endDate = new \DateTime($monthEnd . '/' . $dayEnd);
-        }
-
-        $datesRegex = Regex::match('/(\d{1,2}).(\d{1,2})/', $date);
-        if ($datesRegex->hasMatch()) {
-            $dayStart = $datesRegex->group(1);
-            $monthStart = $datesRegex->group(2);
-
-            $startDate = new \DateTime($monthStart . '/' . $dayStart);
-        }
-
-        return ['startDate' => $startDate, 'endDate' => $endDate];
+        $this->reply('Nigdzie nie jedziesz! Wracaj do roboty! :(');
     }
 }

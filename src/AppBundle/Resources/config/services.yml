@@ -1,6 +1,6 @@
 services:
     absence_storage:
-        class: Infrastructure\File\AbsenceStorage
+        class: Domain\Storage\AbsenceStorage
 
     use_case.take_delegation:
         class: Domain\UseCase\Absence\TakeDelegation

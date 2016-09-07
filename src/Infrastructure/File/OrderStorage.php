@@ -15,7 +15,7 @@ class OrderStorage implements \Domain\Storage\OrderStorage
         file_put_contents($file, serialize($order));
     }
 
-    public function load(string $restaurantName)
+    public function load(string $restaurantName) : Order
     {
         $file = static::$path . $restaurantName;
 

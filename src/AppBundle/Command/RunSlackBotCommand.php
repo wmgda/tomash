@@ -2,9 +2,14 @@
 
 namespace AppBundle\Command;
 
+use AppBundle\SlackCommand\Jemy\JemCommand;
 use AppBundle\SlackCommand\Jemy\JemyCommand;
+use AppBundle\SlackCommand\Jemy\PodsumujCommand;
+use AppBundle\SlackCommand\Jemy\WindykujCommand;
 use AppBundle\SlackCommand\PingCommand;
-use AppBundle\SlackCommand\UrlopCommand;
+use AppBundle\SlackCommand\Urlop\GdzieJestCommand;
+use AppBundle\SlackCommand\Urlop\NieobecniCommand;
+use AppBundle\SlackCommand\Urlop\UrlopCommand;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -29,6 +34,10 @@ class RunSlackBotCommand extends ContainerAwareCommand
         $client->setToken($input->getArgument('token'));
 
         $client->on('message', function ($data) use ($client) {
+            if (!$data['text']) {
+                return;
+            }
+
             $message = $this->parseMessage($data['text']);
 
             if (!$message) {
@@ -37,8 +46,13 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
             $commands = [
                 new PingCommand($client),
+                new JemCommand($client),
                 new JemyCommand($client),
+                new PodsumujCommand($client),
+                new WindykujCommand($client),
                 new UrlopCommand($client),
+                new GdzieJestCommand($client),
+                new NieobecniCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {
