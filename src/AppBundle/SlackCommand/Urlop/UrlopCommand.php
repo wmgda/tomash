@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand;
+namespace AppBundle\SlackCommand\Urlop;
 
+use AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Infrastructure\File\AbsenceStorage;

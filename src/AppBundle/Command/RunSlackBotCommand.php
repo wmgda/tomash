@@ -4,7 +4,8 @@ namespace AppBundle\Command;
 
 use AppBundle\SlackCommand\Jemy\JemyCommand;
 use AppBundle\SlackCommand\PingCommand;
-use AppBundle\SlackCommand\UrlopCommand;
+use AppBundle\SlackCommand\Urlop\GdzieJestCommand;
+use AppBundle\SlackCommand\Urlop\UrlopCommand;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -39,6 +40,7 @@ class RunSlackBotCommand extends ContainerAwareCommand
                 new PingCommand($client),
                 new JemyCommand($client),
                 new UrlopCommand($client),
+                new GdzieJestCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {
