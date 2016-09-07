@@ -18,7 +18,8 @@
         "symfony/polyfill-apcu": "^1.0",
         "sensio/distribution-bundle": "^5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "incenteev/composer-parameter-handler": "^2.0"
+        "incenteev/composer-parameter-handler": "^2.0",
+        "coderstephen/slack-client": "^0.2.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -57,5 +58,7 @@
         "branch-alias": {
             "dev-master": "3.1-dev"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
