@@ -1,30 +1,6 @@
 [
   {
     "position": "1",
-    "name": "Kurczak pikantny",
-    "price": {
-      "zl": 16,
-      "gr": 50
-    }
-  },
-  {
-    "position": "2",
-    "name": "Kurczak czerwone curry po thailandzku",
-    "price": {
-      "zl": 17,
-      "gr": 0
-    }
-  },
-  {
-    "position": "3",
-    "name": "3 sajgonki z surówką i ryżem",
-    "price": {
-      "zl": 12,
-      "gr": 50
-    }
-  },
-  {
-    "position": "4",
     "name": "Kurczak w pięciu smakach",
     "price": {
       "zl": 16,
@@ -32,8 +8,32 @@
     }
   },
   {
+    "position": "2",
+    "name": "Kurczak pikantny",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": "3",
+    "name": "Kurczak słodko-kwaśny",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "4",
+    "name": "Kurczak curry po thailandzku",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
     "position": "5",
-    "name": "Kurczak firmowy A'dong",
+    "name": "Kurczak na zielonym curry po thailandzku",
     "price": {
       "zl": 17,
       "gr": 50
@@ -41,6 +41,126 @@
   },
   {
     "position": "6",
+    "name": "Kurczak na czerwonym curry po thailandzku",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "7",
+    "name": "Kurczak w cieście kokosowym",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "8",
+    "name": "Kurczak z grzybkami mun",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "9",
+    "name": "Kurczak z kiełkami fasoli",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "10",
+    "name": "Kurczak z cukinią",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "11",
+    "name": "Kurczak z warzywami po wietnamsku",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "12",
+    "name": "Kurczak z fasolą strączkową",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": "13",
+    "name": "Kurczak po sajgońsku z sezamem i kiełkami",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "14",
+    "name": "Kurczak po wietnamsku",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": "15",
+    "name": "Kurczak po chińsku",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "16",
+    "name": "Kurczak gongbao na półostro z orzechami",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "17",
+    "name": "Kurczak w sosie hoisin",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "18",
+    "name": "Kurczak firmowy A-Dong",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "19",
+    "name": "Kurczak pikantny na miodzie w aromacie trawy cytrynowej",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "20",
+    "name": "Filet chrupiący A-Dong",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": "21",
     "name": "Filet chrupiący po thailandzku",
     "price": {
       "zl": 18,
@@ -48,7 +168,167 @@
     }
   },
   {
-    "position": "7",
+    "position": "22",
+    "name": "Kurczak chilli na winie",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "23",
+    "name": "Kurczak chilli ostry",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "24",
+    "name": "Kurczak z orzechami nerkowca",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "25",
+    "name": "Wołowina pikantna",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "26",
+    "name": "Wołowina w pięciu smakach",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "27",
+    "name": "Wołowina z fasolą szparagową",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "28",
+    "name": "Wołowina z warzywami po wietnamsku",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "29",
+    "name": "Wołowina z warzywami rozmaitości",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "30",
+    "name": "Wołowina z kiełkami fasoli mung",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": "31",
+    "name": "Wołowina w sezamie na sosie sojowym i wytrawnym cherry",
+    "price": {
+      "zl": 22,
+      "gr": 50
+    }
+  },
+  {
+    "position": "32",
+    "name": "Wołowina ze świeżymi brokułami i czosnkiem po wietnamsku ",
+    "price": {
+      "zl": 19,
+      "gr": 50
+    }
+  },
+  {
+    "position": "33",
+    "name": "Ryż smażony z kurczakiem",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "34",
+    "name": "Ryż smażony z wieprzowiną",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "35",
+    "name": "Ryż smażony z cielęciną",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": "36",
+    "name": "Ryż smażony z wołowiną",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": "37",
+    "name": "Ryż smażony z krewetkami",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": "38",
+    "name": "Ryż smażony z warzywami",
+    "price": {
+      "zl": 14,
+      "gr": 50
+    }
+  },
+  {
+    "position": "39",
+    "name": "2 sajgonki z surówką",
+    "price": {
+      "zl": 8,
+      "gr": 0
+    }
+  },
+  {
+    "position": "40",
+    "name": "3 sajgonki z surówką",
+    "price": {
+      "zl": 10,
+      "gr": 50
+    }
+  },
+  {
+    "position": "41",
+    "name": "3 sajgonki z surówką i ryżem",
+    "price": {
+      "zl": 12,
+      "gr": 50
+    }
+  },
+  {
+    "position": "42",
     "name": "Żeberka po syczuańsku",
     "price": {
       "zl": 18,
