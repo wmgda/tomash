@@ -60,7 +60,7 @@ class Restaurant
 
     private function loadMenu()
     {
-        $menuFilePath = __DIR__ . 'Data/' . $this->name . '.json';
+        $menuFilePath = __DIR__ . '/Data/' . $this->name . '.json';
 
         if(!file_exists($menuFilePath)) {
             throw new RestaurantMenuFileNotFoundException($menuFilePath);

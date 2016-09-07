@@ -32,4 +32,14 @@ abstract class AbstractCommand
     {
         $this->client->send('@' . $this->user->getUsername() . ' ' . $message, $this->channel);
     }
+
+    protected function advancedReply(callable $callback)
+    {
+        $messageBuilder = $this->client->getMessageBuilder();
+        $messageBuilder->setChannel($this->channel);
+
+        $message = $callback($messageBuilder);
+
+        $this->client->postMessage($message);
+    }
 }
