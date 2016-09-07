@@ -30,7 +30,7 @@ abstract class AbstractCommand
 
     protected function reply(string $message)
     {
-        $this->client->send('@' . $this->user->getUsername() . ' ' . $message, $this->channel);
+        $this->client->send('<@' . $this->user->getId() . '> ' .$message, $this->channel);
     }
 
     protected function advancedReply(callable $callback)
@@ -38,7 +38,7 @@ abstract class AbstractCommand
         $messageBuilder = $this->client->getMessageBuilder();
         $messageBuilder->setChannel($this->channel);
 
-        $message = $callback($messageBuilder);
+        $message = $callback($messageBuilder)->create();
 
         $this->client->postMessage($message);
     }
