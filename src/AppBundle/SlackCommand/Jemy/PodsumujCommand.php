@@ -7,6 +7,7 @@ use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Channel;
+use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
@@ -36,9 +37,25 @@ class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
         $useCase->execute($command, $this);
     }
 
-    public function successfullySummedUpOrder(Order $order)
+    public function successfullySummedUpOrder(Order $order, array $items)
     {
-        $this->advancedReply(function (MessageBuilder $builder) {
+        $this->advancedReply(function (MessageBuilder $builder) use ($order, $items) {
+            $lines = [];
+            $text = 'Lista zamówień w #'. $order->getRestaurant()->getName();
+            $builder->setText('<@' . $this->user->getId() . '> ' . $text);
+
+            foreach ($items as $item) {
+                $lines[] = sprintf(
+                    '%d. %s x%d',
+                    $item['item']->getPosition(),
+                    $item['item']->getName(),
+                    $item['qty']
+                );
+            }
+
+            $attachment = new Attachment('Zamówienia', implode($lines, "\n"));
+            $builder->addAttachment($attachment);
+
             return $builder;
         });
     }

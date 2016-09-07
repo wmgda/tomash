@@ -2,6 +2,8 @@
 
 namespace Domain\UseCase\Lunch;
 
+use Domain\Model\Lunch\MenuItem;
+use Domain\Model\Lunch\Participant;
 use Domain\Storage\OrderStorage;
 use Domain\UseCase\Lunch\SumUpOrder\Command;
 use Domain\UseCase\Lunch\SumUpOrder\Responder;
@@ -24,7 +26,24 @@ class SumUpOrder
     public function execute(Command $command, Responder $responder)
     {
         $order = $this->storage->load($command->getRestaurant());
+        $items = [];
+        $summedItems = [];
 
-        var_dump($order);
+        foreach ($order->getParticipants() as $participant) {
+            foreach ($participant->getItems() as $item) {
+                $items[] = $item;
+            }
+        }
+
+        /** @var MenuItem $item */
+        foreach ($items as $item) {
+            if (!array_key_exists($item->getPosition(), $summedItems)) {
+                $summedItems[$item->getPosition()] = ['qty' => 0, 'item' => $item];
+            }
+
+            $summedItems[$item->getPosition()]['qty'] = $summedItems[$item->getPosition()]['qty'] + 1;
+        }
+
+        $responder->successfullySummedUpOrder($order, $summedItems);
     }
 }
