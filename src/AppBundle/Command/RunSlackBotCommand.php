@@ -2,7 +2,10 @@
 
 namespace AppBundle\Command;
 
+use AppBundle\SlackCommand\Jemy\JemCommand;
 use AppBundle\SlackCommand\Jemy\JemyCommand;
+use AppBundle\SlackCommand\Jemy\PodsumujCommand;
+use AppBundle\SlackCommand\Jemy\WindykujCommand;
 use AppBundle\SlackCommand\PingCommand;
 use AppBundle\SlackCommand\Urlop\GdzieJestCommand;
 use AppBundle\SlackCommand\Urlop\UrlopCommand;
@@ -38,7 +41,10 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
             $commands = [
                 new PingCommand($client),
+                new JemCommand($client),
                 new JemyCommand($client),
+                new PodsumujCommand($client),
+                new WindykujCommand($client),
                 new UrlopCommand($client),
                 new GdzieJestCommand($client),
             ];
