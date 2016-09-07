@@ -2,17 +2,34 @@
 
 namespace AppBundle\SlackCommand;
 
+use Slack\ApiClient;
 use Slack\Channel;
 use Slack\User;
 
 abstract class AbstractCommand
 {
+    /** @var ApiClient */
     protected $client;
 
-    public function __construct($client)
+    /** @var User */
+    protected $user;
+
+    /** @var Channel */
+    protected $channel;
+
+    public function __construct(ApiClient $client)
     {
         $this->client = $client;
     }
 
-    abstract public function execute(string $message, User $user, Channel $channel);
+    public function execute(string $message, User $user, Channel $channel)
+    {
+        $this->user = $user;
+        $this->channel = $channel;
+    }
+
+    protected function reply(string $message)
+    {
+        $this->client->send('@' . $this->user->getUsername() . ' ' . $message, $this->channel);
+    }
 }
