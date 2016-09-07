@@ -15,9 +15,9 @@ class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
     {
         parent::execute($message, $user, $channel);
 
-        $sumUpOrderRegex = Regex::match('/podsumuj (.+)/', $message);
+        $regex = Regex::match('/podsumuj (.+)/', $message);
 
-        if ($sumUpOrderRegex->hasMatch()) {
+        if ($regex->hasMatch()) {
             $this->sumUpOrder();
 
             return true;
