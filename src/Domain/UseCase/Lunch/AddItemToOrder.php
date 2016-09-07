@@ -2,13 +2,49 @@
 
 namespace Domain\UseCase\Lunch;
 
+use Domain\Exception\PositionDoesNotExistInMenuException;
+use Domain\Model\Lunch\MenuItem;
+use Domain\Model\Lunch\MenuItemPrice;
+use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder\Command;
 use Domain\UseCase\Lunch\AddItemToOrder\Responder;
 
 class AddItemToOrder
 {
+    /**
+     * @var Order
+     */
+    private $order;
+
+    /**
+     * @var MenuItem
+     */
+    private $menuItem;
+
     public function execute(Command $command, Responder $responder)
     {
+        $this->order = $command->getOrder();
 
+        try {
+            $this->setMenuItem($command->getPosition());
+            $this->order->add($command->getUser(), $this->menuItem);
+        } catch (\Exception $e) {
+            $responder->addingItemToOrderFailed($e);
+        }
+
+        $responder->successfullyAddedItemToOrder($this->order, $command->getUser(), $this->menuItem);
+    }
+
+    /**
+     * @param string $position
+     * @throws PositionDoesNotExistInMenuException
+     */
+    private function setMenuItem(string $position)
+    {
+        if (!array_key_exists($position, $this->order->getRestaurant()->getMenu())) {
+            throw new PositionDoesNotExistInMenuException($position);
+        }
+
+        $this->menuItem = $this->order->getRestaurant()->getMenu()[$position];
     }
 }

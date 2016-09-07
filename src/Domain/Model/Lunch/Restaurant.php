@@ -60,7 +60,7 @@ class Restaurant
 
     private function loadMenu()
     {
-        $menuFilePath = __DIR__ . 'Data/' . $this->name . '.json';
+        $menuFilePath = __DIR__ . '/Data/' . $this->name . '.json';
 
         if(!file_exists($menuFilePath)) {
             throw new RestaurantMenuFileNotFoundException($menuFilePath);
@@ -73,7 +73,7 @@ class Restaurant
         }
 
         foreach($menuAsJson as $menuItem) {
-            $this->menu[] = new MenuItem(
+            $this->menu[$menuItem['position']] = new MenuItem(
                 $menuItem['position'],
                 $menuItem['name'],
                 new MenuItemPrice($menuItem['price']['zl'], $menuItem['price']['gr'])

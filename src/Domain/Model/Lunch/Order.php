@@ -2,6 +2,8 @@
 
 namespace Domain\Model\Lunch;
 
+use Domain\Exception\PositionDoesNotExistInMenuException;
+
 class Order
 {
     /**
@@ -41,10 +43,21 @@ class Order
 
     /**
      * @param string $participantName
-     * @param string $position
+     * @param MenuItem $menuItem
      */
-    public function add($participantName, $position)
+    public function add(string $participantName, MenuItem $menuItem)
     {
-        // AddItemToOrder use case
+        $this->createParticipantIfNotExists($participantName);
+        $this->participants[$participantName]->addItem($menuItem);
+    }
+
+    /**
+     * @param $participantName
+     */
+    private function createParticipantIfNotExists($participantName)
+    {
+        if(!array_key_exists($participantName, $this->participants)) {
+            $this->participants[$participantName] = new Participant($participantName);
+        }
     }
 }

@@ -40,10 +40,10 @@ class Participant
     }
 
     /**
-     * @param string $position
+     * @param MenuItem $position
      */
-    public function addItem(string $position)
+    public function addItem(MenuItem $position)
     {
-        // AddItemToOrder use case
+        $this->items[] = $position;
     }
 }
