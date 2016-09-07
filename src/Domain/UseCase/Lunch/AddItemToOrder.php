@@ -4,7 +4,6 @@ namespace Domain\UseCase\Lunch;
 
 use Domain\Exception\PositionDoesNotExistInMenuException;
 use Domain\Model\Lunch\MenuItem;
-use Domain\Model\Lunch\MenuItemPrice;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder\Command;
 use Domain\UseCase\Lunch\AddItemToOrder\Responder;

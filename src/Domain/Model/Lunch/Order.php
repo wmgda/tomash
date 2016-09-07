@@ -2,8 +2,6 @@
 
 namespace Domain\Model\Lunch;
 
-use Domain\Exception\PositionDoesNotExistInMenuException;
-
 class Order
 {
     /**
