@@ -41,6 +41,7 @@ class AddItemToOrder
         try {
             $this->setMenuItem($command->getPosition());
             $this->order->add($command->getUser(), $this->menuItem);
+            $this->storage->save($this->order);
         } catch (\Exception $e) {
             $responder->addingItemToOrderFailed($e);
         }
