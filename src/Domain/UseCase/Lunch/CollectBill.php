@@ -5,6 +5,7 @@ namespace Domain\UseCase\Lunch;
 use Domain\Exception\ParticipantDoesNotExistException;
 use Domain\Model\Lunch\Order;
 use Domain\Model\Lunch\Participant;
+use Domain\Storage\OrderStorage;
 use Domain\UseCase\Lunch\CollectBill\Command;
 use Domain\UseCase\Lunch\CollectBill\Responder;
 
@@ -21,12 +22,25 @@ class CollectBill
     private $participant;
 
     /**
+     * @var OrderStorage
+     */
+    private $storage;
+
+    /**
+     * @param OrderStorage $storage
+     */
+    public function __construct(OrderStorage $storage)
+    {
+        $this->storage = $storage;
+    }
+
+    /**
      * @param Command $command
      * @param Responder $responder
      */
     public function execute(Command $command, Responder $responder)
     {
-        $this->order = $command->getOrder();
+        $this->order = $this->storage->load($command->getRestaurant());
         $user = $command->getUser();
 
         try {

@@ -5,6 +5,7 @@ namespace Domain\UseCase\Lunch;
 use Domain\Exception\PositionDoesNotExistInMenuException;
 use Domain\Model\Lunch\MenuItem;
 use Domain\Model\Lunch\Order;
+use Domain\Storage\OrderStorage;
 use Domain\UseCase\Lunch\AddItemToOrder\Command;
 use Domain\UseCase\Lunch\AddItemToOrder\Responder;
 
@@ -20,9 +21,22 @@ class AddItemToOrder
      */
     private $menuItem;
 
+    /**
+     * @var OrderStorage
+     */
+    private $storage;
+
+    /**
+     * @param OrderStorage $storage
+     */
+    public function __construct(OrderStorage $storage)
+    {
+        $this->storage = $storage;
+    }
+
     public function execute(Command $command, Responder $responder)
     {
-        $this->order = $command->getOrder();
+        $this->order = $this->storage->load($command->getRestaurant());
 
         try {
             $this->setMenuItem($command->getPosition());

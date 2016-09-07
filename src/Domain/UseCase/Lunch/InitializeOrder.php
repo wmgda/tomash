@@ -5,6 +5,7 @@ namespace Domain\UseCase\Lunch;
 use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\Model\Lunch\Restaurant;
+use Domain\Storage\OrderStorage;
 use Domain\UseCase\Lunch\InitializeOrder\Command;
 use Domain\UseCase\Lunch\InitializeOrder\Responder;
 
@@ -18,6 +19,19 @@ class InitializeOrder
      * @var Order
      */
     private $order;
+
+    /**
+     * @var OrderStorage
+     */
+    private $storage;
+
+    /**
+     * @param OrderStorage $storage
+     */
+    public function __construct(OrderStorage $storage)
+    {
+        $this->storage = $storage;
+    }
 
     /**
      * @param Command $command
@@ -34,6 +48,8 @@ class InitializeOrder
                 static::$supportedRestaurants[$restaurantName]
             );
             $this->order = new Order($restaurant);
+
+            $this->storage->save($this->order);
         } catch (\Exception $e) {
             $responder->orderInitializationFailed($e);
         }

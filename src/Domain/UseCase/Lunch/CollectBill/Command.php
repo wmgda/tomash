@@ -2,14 +2,12 @@
 
 namespace Domain\UseCase\Lunch\CollectBill;
 
-use Domain\Model\Lunch\Order;
-
 class Command
 {
     /**
-     * @var Order
+     * @var string
      */
-    private $order;
+    private $restaurant;
 
     /**
      * @var string
@@ -17,21 +15,21 @@ class Command
     private $user;
 
     /**
-     * @param Order $order
+     * @param string $restaurant
      * @param string $user
      */
-    public function __construct(Order $order, string $user)
+    public function __construct(string $restaurant, string $user)
     {
-        $this->order = $order;
+        $this->restaurant = $restaurant;
         $this->user = $user;
     }
 
     /**
-     * @return Order
+     * @return string
      */
-    public function getOrder() : Order
+    public function getRestaurant() : string
     {
-        return $this->order;
+        return $this->restaurant;
     }
 
     /**

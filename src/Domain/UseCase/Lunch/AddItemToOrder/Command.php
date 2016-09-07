@@ -2,14 +2,12 @@
 
 namespace Domain\UseCase\Lunch\AddItemToOrder;
 
-use Domain\Model\Lunch\Order;
-
 class Command
 {
     /**
-     * @var Order
+     * @var string
      */
-    private $order;
+    private $restaurant;
 
     /**
      * @var string
@@ -22,23 +20,23 @@ class Command
     private $position;
 
     /**
-     * @param Order $order
+     * @param string $restaurant
      * @param string $user
      * @param string $position
      */
-    public function __construct(Order $order, string $user, string $position)
+    public function __construct(string $restaurant, string $user, string $position)
     {
-        $this->order = $order;
+        $this->restaurant = $restaurant;
         $this->user = $user;
         $this->position = $position;
     }
 
     /**
-     * @return Order
+     * @return string
      */
-    public function getOrder() : Order
+    public function getRestaurant() : string
     {
-        return $this->order;
+        return $this->restaurant;
     }
 
     /**
