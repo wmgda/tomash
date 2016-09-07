@@ -2,7 +2,7 @@
 
 namespace AppBundle\Command;
 
-use AppBundle\SlackCommand\JemyCommand;
+use AppBundle\SlackCommand\Jemy\JemyCommand;
 use AppBundle\SlackCommand\PingCommand;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;

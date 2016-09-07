@@ -1,7 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand;
+namespace AppBundle\SlackCommand\Jemy;
 
+use AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\InitializeOrder;
