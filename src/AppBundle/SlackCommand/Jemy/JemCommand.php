@@ -38,7 +38,9 @@ class JemCommand extends AbstractCommand implements AddItemToOrder\Responder
 
     public function successfullyAddedItemToOrder(Order $order, string $userName, MenuItem $addedMenuItem)
     {
-        $price = $addedMenuItem->getPrice()->getZl() . ',' . $addedMenuItem->getPrice()->getGr() . ' zł';
+        $price = $addedMenuItem->getPrice()->toFloat();
+        $price = number_format($price, 2, ',', ' ') . ' zł';
+
         $this->reply($addedMenuItem->getName() . ' dla Ciebie za ' . $price);
     }
 

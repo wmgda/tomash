@@ -49,7 +49,8 @@ class JemyCommand extends AbstractCommand implements InitializeOrder\Responder
             $builder->setText('<@' . $this->user->getId() . '> ' . $text);
 
             foreach ($restaurant->getMenu() as $menuItem) {
-                $price = $menuItem->getPrice()->getZl() . ',' . $menuItem->getPrice()->getGr() . ' zł';
+                $price = $menuItem->getPrice()->toFloat();
+                $price = number_format($price, 2, ',', ' ') . ' zł';
 
                 $menuItems[] = sprintf(
                     '%d. %s [%s]',

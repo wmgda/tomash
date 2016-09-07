@@ -39,8 +39,6 @@ class WindykujCommand extends AbstractCommand implements CollectBill\Responder
 
     public function billCollectedSuccessfully(Order $order, float $totalSum)
     {
-        var_dump($totalSum);
-
         $this->advancedReply(function (MessageBuilder $builder) use ($order, $totalSum) {
             $lines = [];
             $text = 'Lista zamówień w #'. $order->getRestaurant()->getName();
@@ -56,7 +54,7 @@ class WindykujCommand extends AbstractCommand implements CollectBill\Responder
                 $lines[] = sprintf(
                     '<@%s> %s zł',
                     $participant->getName(),
-                    $sum
+                    number_format($sum, 2, ',', ' ')
                 );
             }
 
