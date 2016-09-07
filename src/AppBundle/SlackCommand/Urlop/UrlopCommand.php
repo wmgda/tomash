@@ -6,6 +6,7 @@ use AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
+use Domain\UseCase\Absence\TakeSickLeave;
 use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
@@ -13,7 +14,8 @@ use Spatie\Regex\Regex;
 
 class UrlopCommand extends AbstractCommand implements
     TakeDelegation\Responder,
-    TakeHoliday\Responder
+    TakeHoliday\Responder,
+    TakeSickLeave\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {
@@ -64,7 +66,15 @@ class UrlopCommand extends AbstractCommand implements
             preg_match('/zwolnienie(?<date>.+)/', $message, $results);
             $period = $this->getPeriod($results['date']);
 
-            $this->reply('Szybkiego powrotu do zdrowia! :face_with_thermometer:');
+            $useCase = new TakeSickLeave(new AbsenceStorage());
+            $useCase->execute(
+                new TakeSickLeave\Command(
+                    $user->getUsername(),
+                    $period['startDate'],
+                    $period['endDate']
+                ),
+                $this
+            );
         }
     }
 
@@ -86,5 +96,15 @@ class UrlopCommand extends AbstractCommand implements
     public function failedToTakeHoliday(AbsenceException $exception)
     {
         $this->reply('W pracy nie pada!');
+    }
+
+    public function sickLeaveTakenSuccessfully()
+    {
+        $this->reply('Szybkiego powrotu do zdrowia! :face_with_thermometer:');
+    }
+
+    public function failedToTakeSickLeave(AbsenceException $exception)
+    {
+        $this->reply('Nie symuluj! Wracaj do roboty! :(');
     }
 }
