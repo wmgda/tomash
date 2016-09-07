@@ -17,7 +17,7 @@ class JemCommand extends AbstractCommand implements AddItemToOrder\Responder
     {
         parent::execute($message, $user, $channel);
 
-        $regex = Regex::match('/(?:jem|biore|biorę) (\w+) (\d{1,3})/iu', $message);
+        $regex = Regex::match('/(?:jem|biore|biorę|dla mnie) (\w+) (\d{1,3})/iu', $message);
 
         if ($regex->hasMatch()) {
             $this->addItemToOrder($regex->group(1), $regex->group(2));
