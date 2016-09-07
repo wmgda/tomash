@@ -27,8 +27,16 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
         $client->on('message', function ($data) use ($client) {
             if ($data['text'] == 'ping') {
-                $client->getChannelById($data['channel'])->then(function (\Slack\Channel $channel) use ($client) {
-                    $client->send('pong!', $channel);
+                $username = $client->getUserById($data['user'])->then(function ($user) {
+                    return $user->getUsername();
+                });
+
+                $channel = $client->getChannelById($data['channel'])->then(function (\Slack\Channel $channel) use ($client) {
+                    return $channel;
+                });
+
+                \React\Promise\all([$username, $channel])->then(function ($data) use ($client) {
+                    $client->send('@' . $data[0] . ' pong!', $data[1]);
                 });
             }
         });
