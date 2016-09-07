@@ -112,4 +112,17 @@ class Absence
 
         return $data;
     }
+
+    public static function reason(int $type) {
+        switch ($type) {
+            case self::ABSENCE_TYPE_DELEGATION:
+                return 'jest w delegacji';
+            case self::ABSENCE_TYPE_HOLIDAY:
+                return 'jest na urlopie';
+            case self::ABSENCE_TYPE_SICK_LEAVE:
+                return 'jest na zwolnieniu lekarskim';
+            case self::ABSENCE_TYPE_WORK_FROM_HOME:
+                return 'pracuje z domu';
+        }
+    }
 }

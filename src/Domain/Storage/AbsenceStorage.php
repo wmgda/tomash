@@ -8,4 +8,6 @@ use Domain\Model\Absence\Absence;
 interface AbsenceStorage
 {
     public function add(Absence $absence);
+
+    public function find(string $date, string $person);
 }
