@@ -25,9 +25,14 @@ class Absence
     private $person;
 
     /**
-     * @var string
+     * @var \DateTime
      */
-    private $date;
+    private $dateStart;
+
+    /**
+     * @var \DateTime
+     */
+    private $dateEnd;
 
     /**
      * @var int
@@ -36,16 +41,18 @@ class Absence
 
     /**
      * Absence constructor.
-     * @param string $person
-     * @param string $date
      * @param int $type
+     * @param string $person
+     * @param \DateTime $dateStart
+     * @param \DateTime $dateEnd
      */
-    public function __construct(string $person, string $date, int $type)
+    public function __construct(int $type, string $person, \DateTime $dateStart, \DateTime $dateEnd)
     {
         $this->validateAbsenceTypes($type);
 
         $this->person = $person;
-        $this->date = $date;
+        $this->dateStart = $dateStart;
+        $this->dateEnd = $dateEnd;
         $this->type = $type;
     }
 
@@ -58,11 +65,19 @@ class Absence
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
-    public function getDate(): string
+    public function getDateStart(): \DateTime
     {
-        return $this->date;
+        return $this->dateStart;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getDateEnd(): \DateTime
+    {
+        return $this->dateEnd;
     }
 
     /**
@@ -80,12 +95,21 @@ class Absence
         }
     }
 
-    public function toArray()
+    public function toStorage() : array
     {
-        return [
-            'person' => $this->getPerson(),
-            'date' => $this->getDate(),
-            'type' => $this->getType()
-        ];
+        $data = [];
+
+        $diff = $this->dateStart->diff($this->dateEnd)->days;
+
+        for ($i = 0; $i <= $diff; $i++) {
+            $data[] = [
+                'person' => $this->getPerson(),
+                'date' => $this->getDateStart()->format('d-m-Y'),
+                'type' => $this->getType(),
+            ];
+            $this->dateStart->add(new \DateInterval('P1D'));
+        }
+
+        return $data;
     }
 }

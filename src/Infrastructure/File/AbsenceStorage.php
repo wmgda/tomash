@@ -3,18 +3,18 @@ declare(strict_types = 1);
 
 namespace Infrastructure\File;
 
+use Domain\Storage\AbsenceStorage as Storage;
 use Domain\Model\Absence\Absence;
 use League\Csv\Writer;
-use SplTempFileObject;
+use SplFileObject;
 
-class AbsenceStorage
+class AbsenceStorage implements Storage
 {
     private static $file = './var/storage/absence.csv';
 
     public function add(Absence $absence)
     {
-        $writer = Writer::createFromPath(new SplTempFileObject(self::$file, 'a+'));
-
-        $writer->insertOne($absence->toArray());
+        $writer = Writer::createFromFileObject(new SplFileObject(self::$file, 'a+'));
+        $writer->insertAll($absence->toStorage());
     }
 }
