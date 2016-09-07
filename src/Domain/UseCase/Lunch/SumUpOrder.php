@@ -23,6 +23,8 @@ class SumUpOrder
 
     public function execute(Command $command, Responder $responder)
     {
+        $order = $this->storage->load($command->getRestaurant());
 
+        var_dump($order);
     }
 }

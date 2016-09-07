@@ -18,7 +18,7 @@ class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
         $regex = Regex::match('/podsumuj (.+)/', $message);
 
         if ($regex->hasMatch()) {
-            $this->sumUpOrder();
+            $this->sumUpOrder($regex->group(1));
 
             return true;
         }
@@ -26,9 +26,9 @@ class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
         return false;
     }
 
-    protected function sumUpOrder()
+    protected function sumUpOrder(string $restaurant)
     {
-        $command = new SumUpOrder\Command();
+        $command = new SumUpOrder\Command($restaurant);
 
         $useCase = new SumUpOrder(new OrderStorage());
         $useCase->execute($command, $this);

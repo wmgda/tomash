@@ -14,7 +14,7 @@ interface OrderStorage
     /**
      * @param string $restaurantName
      */
-    public function load(string $restaurantName);
+    public function load(string $restaurantName) : Order;
 
     /**
      * @param string $restaurantName
