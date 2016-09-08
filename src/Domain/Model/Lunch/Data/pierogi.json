@@ -1,0 +1,20 @@
+[
+  {
+    "position": "1",
+    "name": "Mięssowicz",
+    "description": "Mięso z łopatki wieprzowej.",
+    "price": {
+      "zl": 14,
+      "gr": 0
+    }
+  },
+  {
+    "position": "2",
+    "name": "Ruskiewicz",
+    "description": "Ziemniaki, twaróg, cebula.",
+    "price": {
+      "zl": 13,
+      "gr": 0
+    }
+  }
+]

@@ -14,6 +14,7 @@ class InitializeOrder
     private static $supportedRestaurants = [
         'adong' => "A'Dong",
         'surf' => 'Surf Burger',
+        'pierogi' => 'Pierogi z drogi',
     ];
 
     /**
