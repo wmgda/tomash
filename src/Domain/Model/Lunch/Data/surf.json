@@ -1,0 +1,101 @@
+[
+  {
+    "position": "1",
+    "name": "Burger Specjal",
+    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "2",
+    "name": "Burger Wege",
+    "description": "Bułka pszenna/grahamka/maślana,  mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, 200 gramów pieczeni orzechowo – warzywnej.",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "3",
+    "name": "Burger Ostry",
+    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, marynowana papryka jalapeño, chilli, sos Pimento, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "4",
+    "name": "Burger Hawajski",
+    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, świeży grillowany ananas, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "5",
+    "name": "Burger Włoski",
+    "description": "Bułka pszenna/grahamka/maślana, ser mozzarella, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, świeża bazylia, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": "6",
+    "name": "Burger Morena",
+    "description": "Bułka pszenna/grahamka/maślana, ser lazur, mix sałat, pomidor, czerwona cebula, ogórek kwaszony,  prażona cebulka, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": "7",
+    "name": "Burger Słodki Góral",
+    "description": "Bułka pszenna/grahamka/maślana, ser oscypek, mix sałat,  czerwona cebula, borówka, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": "8",
+    "name": "Burger Karmel",
+    "description": "Bułka pszenna/grahamka/maślana, norweski kozi brązowy ser karmelowy, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": "9",
+    "name": "Burger Double Trouble",
+    "description": "Bułka pszenna/grahamka/maślana, 2x ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, 2x bekon, sos musztardowo – miodowy, 180 gramów wołowiny.",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": "10",
+    "name": "Burger Nacho",
+    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, gorący sos serowy, nachosy, 180 gramów wołowiny.",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": "11",
+    "name": "Burger Dziki",
+    "description": "Bułka pszenna/grahamka/maślana, 180 gramowy kotlet z 100% mięsa dzika, ser cheddar, czerwona cebulka, mix sałat, ogórek kwaszony nasz autorski majonezowy sos do dziczyzny.",
+    "price": {
+      "zl": 20,
+      "gr": 0
+    }
+  }
+]

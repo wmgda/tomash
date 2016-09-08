@@ -12,7 +12,8 @@ use Domain\UseCase\Lunch\InitializeOrder\Responder;
 class InitializeOrder
 {
     private static $supportedRestaurants = [
-        'adong' => "A'Dong"
+        'adong' => "A'Dong",
+        'surf' => 'Surf Burger',
     ];
 
     /**
