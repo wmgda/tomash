@@ -16,5 +16,41 @@
       "zl": 13,
       "gr": 0
     }
+  },
+  {
+    "position": "3",
+    "name": "Kasza-Grzybowicz",
+    "description": "",
+    "price": {
+      "zl": 14,
+      "gr": 0
+    }
+  },
+  {
+    "position": "4",
+    "name": "Szpinakowski-Fetas",
+    "description": "",
+    "price": {
+      "zl": 14,
+      "gr": 0
+    }
+  },
+  {
+    "position": "5",
+    "name": "Meksykowicz",
+    "description": "",
+    "price": {
+      "zl": 15,
+      "gr": 0
+    }
+  },
+  {
+    "position": "6",
+    "name": "Jagodziński",
+    "description": "",
+    "price": {
+      "zl": 15,
+      "gr": 0
+    }
   }
 ]
