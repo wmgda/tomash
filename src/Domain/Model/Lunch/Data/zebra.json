@@ -1,0 +1,50 @@
+[
+  {
+    "position": "1",
+    "name": "Klasyczna zebra",
+    "price": {
+      "zl": 15,
+      "gr": 0
+    }
+  },
+  {
+    "position": "2",
+    "name": "Ostra zebra",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "3",
+    "name": "Ostra w ch*** zebra",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": "4",
+    "name": "Słodka zebra",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": "5",
+    "name": "Serowa zebra",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": "6",
+    "name": "Gruba zebra",
+    "price": {
+      "zl": 26,
+      "gr": 0
+    }
+  }
+]
