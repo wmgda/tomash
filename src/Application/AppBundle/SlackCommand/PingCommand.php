@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\SlackCommand;
+namespace Application\AppBundle\SlackCommand;
 
 use Slack\Channel;
 use Slack\User;

@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Urlop;
+namespace Application\AppBundle\SlackCommand\Absence;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
@@ -13,7 +13,7 @@ use Slack\Channel;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class UrlopCommand extends AbstractCommand implements
+class AbsenceCommand extends AbstractCommand implements
     TakeDelegation\Responder,
     TakeHoliday\Responder,
     TakeSickLeave\Responder,

@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Jemy;
+namespace Application\AppBundle\SlackCommand\Lunch;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\CollectBill;
 use Infrastructure\File\OrderStorage;
@@ -12,7 +12,7 @@ use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class WindykujCommand extends AbstractCommand implements CollectBill\Responder
+class VindicateCommand extends AbstractCommand implements CollectBill\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {

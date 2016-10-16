@@ -1,16 +1,16 @@
 <?php
 
-namespace AppBundle\Command;
+namespace Application\AppBundle\Command;
 
-use AppBundle\SlackCommand\Jemy\JemCommand;
-use AppBundle\SlackCommand\Jemy\JemyCommand;
-use AppBundle\SlackCommand\Jemy\PodsumujCommand;
-use AppBundle\SlackCommand\Jemy\WindykujCommand;
-use AppBundle\SlackCommand\Jemy\ZamknijCommand;
-use AppBundle\SlackCommand\PingCommand;
-use AppBundle\SlackCommand\Urlop\GdzieJestCommand;
-use AppBundle\SlackCommand\Urlop\NieobecniCommand;
-use AppBundle\SlackCommand\Urlop\UrlopCommand;
+use Application\AppBundle\SlackCommand\Lunch\IAmEatingCommand;
+use Application\AppBundle\SlackCommand\Lunch\WeAreEatingCommand;
+use Application\AppBundle\SlackCommand\Lunch\SumUpCommand;
+use Application\AppBundle\SlackCommand\Lunch\VindicateCommand;
+use Application\AppBundle\SlackCommand\Lunch\CloseCommand;
+use Application\AppBundle\SlackCommand\PingCommand;
+use Application\AppBundle\SlackCommand\Absence\WhereIsCommand;
+use Application\AppBundle\SlackCommand\Absence\WhoIsAbsentCommand;
+use Application\AppBundle\SlackCommand\Absence\AbsenceCommand;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -47,14 +47,14 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
             $commands = [
                 new PingCommand($client),
-                new JemCommand($client),
-                new JemyCommand($client),
-                new PodsumujCommand($client),
-                new WindykujCommand($client),
-                new UrlopCommand($client),
-                new GdzieJestCommand($client),
-                new NieobecniCommand($client),
-                new ZamknijCommand($client),
+                new IAmEatingCommand($client),
+                new WeAreEatingCommand($client),
+                new SumUpCommand($client),
+                new VindicateCommand($client),
+                new AbsenceCommand($client),
+                new WhereIsCommand($client),
+                new WhoIsAbsentCommand($client),
+                new CloseCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {

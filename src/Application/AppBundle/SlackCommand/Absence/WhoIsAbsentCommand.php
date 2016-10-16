@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Urlop;
+namespace Application\AppBundle\SlackCommand\Absence;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\ListAbsent;
 use Infrastructure\File\AbsenceStorage;
@@ -12,7 +12,7 @@ use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class NieobecniCommand extends AbstractCommand implements ListAbsent\Responder
+class WhoIsAbsentCommand extends AbstractCommand implements ListAbsent\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {
@@ -22,7 +22,7 @@ class NieobecniCommand extends AbstractCommand implements ListAbsent\Responder
 
         if ($nieobecniRegex->hasMatch()) {
             preg_match('/nieobecni(?<date>.+)/', $message, $results);
-            
+
             $period = $this->getPeriod($results['date']);
 
             $useCase = new ListAbsent(new AbsenceStorage());

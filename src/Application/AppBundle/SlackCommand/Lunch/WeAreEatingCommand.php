@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Jemy;
+namespace Application\AppBundle\SlackCommand\Lunch;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\InitializeOrder;
@@ -13,7 +13,7 @@ use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class JemyCommand extends AbstractCommand implements InitializeOrder\Responder
+class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {

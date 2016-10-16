@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Urlop;
+namespace Application\AppBundle\SlackCommand\Absence;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\WhereIs;
 use Infrastructure\File\AbsenceStorage;
@@ -10,7 +10,7 @@ use Slack\Channel;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class GdzieJestCommand extends AbstractCommand implements WhereIs\Responder
+class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {

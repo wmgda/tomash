@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Jemy;
+namespace Application\AppBundle\SlackCommand\Lunch;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
@@ -12,7 +12,7 @@ use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class PodsumujCommand extends AbstractCommand implements SumUpOrder\Responder
+class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {

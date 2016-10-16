@@ -1,8 +1,8 @@
 <?php
 
-namespace AppBundle\SlackCommand\Jemy;
+namespace Application\AppBundle\SlackCommand\Lunch;
 
-use AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Lunch\MenuItem;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder;
@@ -11,7 +11,7 @@ use Slack\Channel;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class JemCommand extends AbstractCommand implements AddItemToOrder\Responder
+class IAmEatingCommand extends AbstractCommand implements AddItemToOrder\Responder
 {
     public function execute(string $message, User $user, Channel $channel)
     {
