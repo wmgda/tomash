@@ -19,30 +19,19 @@ class CloseCommand extends AbstractCommand implements CloseOrder\Responder
     {
         parent::execute($message, $user, $channel);
 
-        $this->closeOrder($this->getPart(1));
+        $restaurant = $this->getPart(1);
 
-        return true;
-    }
-
-    public function closeOrder(string $restaurant)
-    {
         $command = new CloseOrder\Command($restaurant);
 
         $useCase = new CloseOrder(new OrderStorage());
         $useCase->execute($command, $this);
     }
 
-    /**
-     * @param string $restaurantName
-     */
     public function orderClosedSuccessfully(string $restaurantName)
     {
         $this->reply('Smacznego! :curry:');
     }
 
-    /**
-     * @param \Exception $e
-     */
     public function closingOrderFailed(\Exception $e)
     {
         $this->reply('Nie udało się zamknąć :(');

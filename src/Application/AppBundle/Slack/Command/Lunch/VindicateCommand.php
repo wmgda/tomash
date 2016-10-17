@@ -22,13 +22,8 @@ class VindicateCommand extends AbstractCommand implements CollectBill\Responder
     {
         parent::execute($message, $user, $channel);
 
-        $this->collectBill($this->getPart(1));
+        $restaurant = $this->getPart(1);
 
-        return true;
-    }
-
-    protected function collectBill(string $restaurant)
-    {
         $command = new CollectBill\Command($restaurant, $this->user->getId());
 
         $useCase = new CollectBill(new OrderStorage());

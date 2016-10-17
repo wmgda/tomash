@@ -10,7 +10,6 @@ use Slack\Channel;
 use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
-use Spatie\Regex\Regex;
 
 class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
 {
@@ -23,13 +22,8 @@ class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
     {
         parent::execute($message, $user, $channel);
 
-        $this->sumUpOrder($this->getPart(1));
+        $restaurant = $this->getPart(1);
 
-        return true;
-    }
-
-    protected function sumUpOrder(string $restaurant)
-    {
         $command = new SumUpOrder\Command($restaurant);
 
         $useCase = new SumUpOrder(new OrderStorage());

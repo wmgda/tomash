@@ -23,13 +23,8 @@ class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Resp
     {
         parent::execute($message, $user, $channel);
 
-        $this->initializeOrder($this->getPart(1));
+        $restaurant = $this->getPart(1);
 
-        return true;
-    }
-
-    protected function initializeOrder(string $restaurant)
-    {
         $command = new InitializeOrder\Command($restaurant);
 
         $useCase = new InitializeOrder(new OrderStorage());
@@ -67,7 +62,9 @@ class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Resp
     public function orderInitializationFailed(\Exception $e)
     {
         if ($e instanceof NotSupportedRestaurantException) {
-            return $this->reply('Nie ma takiej restauracji');
+            $this->reply('Nie ma takiej restauracji');
+
+            return;
         }
 
         $this->reply('Coś się zapsuło i nie ma zamawiania :(');

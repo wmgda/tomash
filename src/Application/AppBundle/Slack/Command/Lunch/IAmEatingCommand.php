@@ -21,13 +21,9 @@ class IAmEatingCommand extends AbstractCommand implements AddItemToOrder\Respond
     {
         parent::execute($message, $user, $channel);
 
-        $this->addItemToOrder($this->getPart(1), $this->getPart(2));
+        $restaurant = $this->getPart(1);
+        $position = $this->getPart(2);
 
-        return true;
-    }
-
-    protected function addItemToOrder(string $restaurant, int $position)
-    {
         $command = new AddItemToOrder\Command($restaurant, $this->user->getId(), $position);
 
         $useCase = new AddItemToOrder(new OrderStorage());
