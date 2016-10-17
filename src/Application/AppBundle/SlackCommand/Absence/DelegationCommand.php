@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Absence;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
@@ -12,7 +12,7 @@ use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 
-class DelegationCommand extends TempAbstractCommand implements TakeDelegation\Responder
+class DelegationCommand extends AbstractCommand implements TakeDelegation\Responder
 {
     public function configure()
     {

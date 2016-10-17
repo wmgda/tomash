@@ -2,14 +2,14 @@
 
 namespace Application\AppBundle\SlackCommand\Absence;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\WhereIs;
 use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 
-class WhereIsCommand extends TempAbstractCommand implements WhereIs\Responder
+class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
 {
     public function configure()
     {

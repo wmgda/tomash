@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Absence;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\ListAbsent;
 use Infrastructure\File\AbsenceStorage;
@@ -11,7 +11,7 @@ use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
 
-class WhoIsAbsentCommand extends TempAbstractCommand implements ListAbsent\Responder
+class WhoIsAbsentCommand extends AbstractCommand implements ListAbsent\Responder
 {
     public function configure()
     {

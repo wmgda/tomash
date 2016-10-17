@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Lunch\MenuItem;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder;
@@ -10,7 +10,7 @@ use Infrastructure\File\OrderStorage;
 use Slack\Channel;
 use Slack\User;
 
-class IAmEatingCommand extends TempAbstractCommand implements AddItemToOrder\Responder
+class IAmEatingCommand extends AbstractCommand implements AddItemToOrder\Responder
 {
     public function configure()
     {

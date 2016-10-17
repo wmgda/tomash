@@ -5,6 +5,7 @@ namespace Application\AppBundle\SlackCommand;
 use Slack\ApiClient;
 use Slack\Channel;
 use Slack\User;
+use Spatie\Regex\MatchResult;
 use Spatie\Regex\Regex;
 
 abstract class AbstractCommand
@@ -18,9 +19,32 @@ abstract class AbstractCommand
     /** @var Channel */
     protected $channel;
 
+    /** @var string */
+    protected $regexPattern;
+
+    /** @var MatchResult */
+    protected $regex;
+
     public function __construct(ApiClient $client)
     {
         $this->client = $client;
+    }
+
+    public function setRegex(string $regex)
+    {
+        $this->regexPattern = $regex;
+    }
+
+    public function matches(string $message) : bool
+    {
+        $this->regex = Regex::match($this->regexPattern, $message);
+
+        return $this->regex->hasMatch();
+    }
+
+    public function getPart(int $index) : string
+    {
+        return $this->regex->group($index);
     }
 
     public function execute(string $message, User $user, Channel $channel)

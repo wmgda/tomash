@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\CollectBill;
 use Infrastructure\File\OrderStorage;
@@ -11,7 +11,7 @@ use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
 
-class VindicateCommand extends TempAbstractCommand implements CollectBill\Responder
+class VindicateCommand extends AbstractCommand implements CollectBill\Responder
 {
     public function configure()
     {

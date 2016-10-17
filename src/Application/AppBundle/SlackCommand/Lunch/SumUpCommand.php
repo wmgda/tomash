@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
@@ -12,7 +12,7 @@ use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class SumUpCommand extends TempAbstractCommand implements SumUpOrder\Responder
+class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
 {
     public function configure()
     {

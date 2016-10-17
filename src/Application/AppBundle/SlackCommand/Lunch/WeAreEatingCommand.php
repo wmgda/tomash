@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\InitializeOrder;
@@ -12,7 +12,7 @@ use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
 
-class WeAreEatingCommand extends TempAbstractCommand implements InitializeOrder\Responder
+class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Responder
 {
     public function configure()
     {

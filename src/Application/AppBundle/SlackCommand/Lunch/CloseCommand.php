@@ -2,13 +2,13 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\TempAbstractCommand;
+use Application\AppBundle\SlackCommand\AbstractCommand;
 use Domain\UseCase\Lunch\CloseOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Channel;
 use Slack\User;
 
-class CloseCommand extends TempAbstractCommand implements CloseOrder\Responder
+class CloseCommand extends AbstractCommand implements CloseOrder\Responder
 {
     public function configure()
     {

@@ -5,7 +5,7 @@ namespace Application\AppBundle\SlackCommand;
 use Slack\Channel;
 use Slack\User;
 
-class PingCommand extends TempAbstractCommand
+class PingCommand extends AbstractCommand
 {
     public function configure()
     {
