@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\AppBundle\SlackCommand\Absence;
+namespace Application\AppBundle\Slack\Command\Absence;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\Slack\Command\AbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\WhereIs;
 use Infrastructure\File\AbsenceStorage;

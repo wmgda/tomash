@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\AppBundle\SlackCommand\Absence;
+namespace Application\AppBundle\Slack\Command\Absence;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\Slack\Command\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
@@ -12,11 +12,11 @@ use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 
-class DelegationCommand extends AbstractCommand implements TakeDelegation\Responder
+class WorkFromHomeCommand extends AbstractCommand implements WorkFromHome\Responder
 {
     public function configure()
     {
-        $this->setRegex('/delegacja (.+)/iu');
+        $this->setRegex('/wfh (.+)/iu');
     }
 
     public function execute(string $message, User $user, Channel $channel)
@@ -25,9 +25,9 @@ class DelegationCommand extends AbstractCommand implements TakeDelegation\Respon
 
         $period = $this->getPeriod($this->getPart(1));
 
-        $useCase = new TakeDelegation(new AbsenceStorage());
+        $useCase = new WorkFromHome(new AbsenceStorage());
         $useCase->execute(
-            new TakeDelegation\Command(
+            new WorkFromHome\Command(
                 $user->getUsername(),
                 $period['startDate'],
                 $period['endDate']
@@ -36,13 +36,13 @@ class DelegationCommand extends AbstractCommand implements TakeDelegation\Respon
         );
     }
 
-    public function delegationTakenSuccessfully()
+    public function failedToWorkFormHome(AbsenceException $exception)
     {
-        $this->reply('Nie wydaj za dużo! ;) :moneybag:');
+        $this->reply('Nie poradzimy sobie BEZ Ciebie!');
     }
 
-    public function failedToTakeDelegation(AbsenceException $exception)
+    public function workFromHomeSuccessfully()
     {
-        $this->reply('Nigdzie nie jedziesz! Wracaj do roboty! :(');
+        $this->reply('Mam nadzieję, że jednak będziesz pracował ;) :house:');
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\AppBundle\SlackCommand;
+namespace Application\AppBundle\Slack\Command;
 
 use Slack\ApiClient;
 use Slack\Channel;

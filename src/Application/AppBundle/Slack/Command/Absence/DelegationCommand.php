@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\AppBundle\SlackCommand\Absence;
+namespace Application\AppBundle\Slack\Command\Absence;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\Slack\Command\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
@@ -12,11 +12,11 @@ use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 
-class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responder
+class DelegationCommand extends AbstractCommand implements TakeDelegation\Responder
 {
     public function configure()
     {
-        $this->setRegex('/zwolnienie (.+)/iu');
+        $this->setRegex('/delegacja (.+)/iu');
     }
 
     public function execute(string $message, User $user, Channel $channel)
@@ -25,9 +25,9 @@ class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responde
 
         $period = $this->getPeriod($this->getPart(1));
 
-        $useCase = new TakeSickLeave(new AbsenceStorage());
+        $useCase = new TakeDelegation(new AbsenceStorage());
         $useCase->execute(
-            new TakeSickLeave\Command(
+            new TakeDelegation\Command(
                 $user->getUsername(),
                 $period['startDate'],
                 $period['endDate']
@@ -36,13 +36,13 @@ class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responde
         );
     }
 
-    public function sickLeaveTakenSuccessfully()
+    public function delegationTakenSuccessfully()
     {
-        $this->reply('Szybkiego powrotu do zdrowia! :face_with_thermometer:');
+        $this->reply('Nie wydaj za dużo! ;) :moneybag:');
     }
 
-    public function failedToTakeSickLeave(AbsenceException $exception)
+    public function failedToTakeDelegation(AbsenceException $exception)
     {
-        $this->reply('Nie symuluj! Wracaj do roboty! :(');
+        $this->reply('Nigdzie nie jedziesz! Wracaj do roboty! :(');
     }
 }

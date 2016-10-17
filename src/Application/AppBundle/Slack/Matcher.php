@@ -1,6 +1,6 @@
 <?php
 
-namespace Application\Slack;
+namespace Application\AppBundle\Slack;
 
 class Matcher
 {

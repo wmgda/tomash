@@ -2,20 +2,19 @@
 
 namespace Application\AppBundle\Command;
 
-use Application\AppBundle\SlackCommand\Absence\DelegationCommand;
-use Application\AppBundle\SlackCommand\Absence\HolidayCommand;
-use Application\AppBundle\SlackCommand\Absence\SickLeaveCommand;
-use Application\AppBundle\SlackCommand\Absence\WorkFromHomeCommand;
-use Application\AppBundle\SlackCommand\Lunch\IAmEatingCommand;
-use Application\AppBundle\SlackCommand\Lunch\WeAreEatingCommand;
-use Application\AppBundle\SlackCommand\Lunch\SumUpCommand;
-use Application\AppBundle\SlackCommand\Lunch\VindicateCommand;
-use Application\AppBundle\SlackCommand\Lunch\CloseCommand;
-use Application\AppBundle\SlackCommand\PingCommand;
-use Application\AppBundle\SlackCommand\Absence\WhereIsCommand;
-use Application\AppBundle\SlackCommand\Absence\WhoIsAbsentCommand;
-use Application\AppBundle\SlackCommand\Absence\AbsenceCommand;
-use Application\Slack\Matcher;
+use Application\AppBundle\Slack\Command\Absence\DelegationCommand;
+use Application\AppBundle\Slack\Command\Absence\HolidayCommand;
+use Application\AppBundle\Slack\Command\Absence\SickLeaveCommand;
+use Application\AppBundle\Slack\Command\Absence\WorkFromHomeCommand;
+use Application\AppBundle\Slack\Command\Lunch\IAmEatingCommand;
+use Application\AppBundle\Slack\Command\Lunch\WeAreEatingCommand;
+use Application\AppBundle\Slack\Command\Lunch\SumUpCommand;
+use Application\AppBundle\Slack\Command\Lunch\VindicateCommand;
+use Application\AppBundle\Slack\Command\Lunch\CloseCommand;
+use Application\AppBundle\Slack\Command\PingCommand;
+use Application\AppBundle\Slack\Command\Absence\WhereIsCommand;
+use Application\AppBundle\Slack\Command\Absence\WhoIsAbsentCommand;
+use Application\AppBundle\Slack\Matcher;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;

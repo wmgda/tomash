@@ -1,8 +1,8 @@
 <?php
 
-namespace Application\AppBundle\SlackCommand\Absence;
+namespace Application\AppBundle\Slack\Command\Absence;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\Slack\Command\AbstractCommand;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
@@ -12,11 +12,11 @@ use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
 
-class WorkFromHomeCommand extends AbstractCommand implements WorkFromHome\Responder
+class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responder
 {
     public function configure()
     {
-        $this->setRegex('/wfh (.+)/iu');
+        $this->setRegex('/zwolnienie (.+)/iu');
     }
 
     public function execute(string $message, User $user, Channel $channel)
@@ -25,9 +25,9 @@ class WorkFromHomeCommand extends AbstractCommand implements WorkFromHome\Respon
 
         $period = $this->getPeriod($this->getPart(1));
 
-        $useCase = new WorkFromHome(new AbsenceStorage());
+        $useCase = new TakeSickLeave(new AbsenceStorage());
         $useCase->execute(
-            new WorkFromHome\Command(
+            new TakeSickLeave\Command(
                 $user->getUsername(),
                 $period['startDate'],
                 $period['endDate']
@@ -36,13 +36,13 @@ class WorkFromHomeCommand extends AbstractCommand implements WorkFromHome\Respon
         );
     }
 
-    public function failedToWorkFormHome(AbsenceException $exception)
+    public function sickLeaveTakenSuccessfully()
     {
-        $this->reply('Nie poradzimy sobie BEZ Ciebie!');
+        $this->reply('Szybkiego powrotu do zdrowia! :face_with_thermometer:');
     }
 
-    public function workFromHomeSuccessfully()
+    public function failedToTakeSickLeave(AbsenceException $exception)
     {
-        $this->reply('Mam nadzieję, że jednak będziesz pracował ;) :house:');
+        $this->reply('Nie symuluj! Wracaj do roboty! :(');
     }
 }
