@@ -2,6 +2,10 @@
 
 namespace Application\AppBundle\Command;
 
+use Application\AppBundle\SlackCommand\Absence\DelegationCommand;
+use Application\AppBundle\SlackCommand\Absence\HolidayCommand;
+use Application\AppBundle\SlackCommand\Absence\SickLeaveCommand;
+use Application\AppBundle\SlackCommand\Absence\WorkFromHomeCommand;
 use Application\AppBundle\SlackCommand\Lunch\IAmEatingCommand;
 use Application\AppBundle\SlackCommand\Lunch\WeAreEatingCommand;
 use Application\AppBundle\SlackCommand\Lunch\SumUpCommand;
@@ -50,14 +54,17 @@ class RunSlackBotCommand extends ContainerAwareCommand
             }
 
             $commands = [
-//                new PingCommand($client),
+                new PingCommand($client),
                 new WeAreEatingCommand($client),
                 new IAmEatingCommand($client),
                 new SumUpCommand($client),
                 new VindicateCommand($client),
-//                new AbsenceCommand($client),
-//                new WhereIsCommand($client),
-//                new WhoIsAbsentCommand($client),
+                new DelegationCommand($client),
+                new HolidayCommand($client),
+                new SickLeaveCommand($client),
+                new WorkFromHomeCommand($client),
+                new WhereIsCommand($client),
+                new WhoIsAbsentCommand($client),
                 new CloseCommand($client),
             ];
 
@@ -90,7 +97,6 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
     protected function parseMessage(string $message, string $botId)
     {
-//        $matches = preg_match('/\<\@U261PFXBM\>:?(?<text>.+)/', $message, $results);
         $matches = preg_match('/\<\@' . $botId . '\>:?(?<text>.+)/', $message, $results);
 
         if (!$matches) {

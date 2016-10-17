@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Absence;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\TempAbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\ListAbsent;
 use Infrastructure\File\AbsenceStorage;
@@ -10,30 +10,22 @@ use Slack\Channel;
 use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
-use Spatie\Regex\Regex;
 
-class WhoIsAbsentCommand extends AbstractCommand implements ListAbsent\Responder
+class WhoIsAbsentCommand extends TempAbstractCommand implements ListAbsent\Responder
 {
     public function configure()
     {
-
+        $this->setRegex('/nieobecni (.+)/');
     }
 
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
 
-        $nieobecniRegex = Regex::match('/nieobecni (.+)/', $message);
+        $period = $this->getPeriod($this->getPart(1));
 
-        if ($nieobecniRegex->hasMatch()) {
-            preg_match('/nieobecni(?<date>.+)/', $message, $results);
-
-            $period = $this->getPeriod($results['date']);
-
-            $useCase = new ListAbsent(new AbsenceStorage());
-            $useCase->execute(new ListAbsent\Command($period['startDate']), $this);
-
-        }
+        $useCase = new ListAbsent(new AbsenceStorage());
+        $useCase->execute(new ListAbsent\Command($period['startDate']), $this);
     }
 
     public function allAreAtWork()

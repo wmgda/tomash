@@ -2,34 +2,28 @@
 
 namespace Application\AppBundle\SlackCommand\Absence;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\TempAbstractCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\WhereIs;
 use Infrastructure\File\AbsenceStorage;
 use Slack\Channel;
 use Slack\User;
-use Spatie\Regex\Regex;
 
-class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
+class WhereIsCommand extends TempAbstractCommand implements WhereIs\Responder
 {
     public function configure()
     {
-
+        $this->setRegex('/gdzie jest (.+)/iu');
     }
 
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
 
-        $gdzieJestRegex = Regex::match('/gdzie jest (.+)/', $message);
+        $name = trim($this->getPart(1));
 
-        if ($gdzieJestRegex->hasMatch()) {
-            preg_match('/gdzie jest(?<name>.+)/', $message, $results);
-            $name = trim($results['name']);
-
-            $useCase = new WhereIs(new AbsenceStorage());
-            $useCase->execute(new WhereIs\Command(new \DateTime(), $name), $this);
-        }
+        $useCase = new WhereIs(new AbsenceStorage());
+        $useCase->execute(new WhereIs\Command(new \DateTime(), $name), $this);
     }
 
     public function entryNotFoundForPerson(string $person)
