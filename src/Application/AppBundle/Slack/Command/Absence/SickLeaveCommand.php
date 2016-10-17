@@ -16,7 +16,7 @@ class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responde
 {
     public function configure()
     {
-        $this->setRegex('/zwolnienie (.+)/iu');
+        $this->setRegex('/(?:zwolnienie|l4|L4) (.+)/iu');
     }
 
     public function execute(string $message, User $user, Channel $channel)

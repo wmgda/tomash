@@ -16,7 +16,7 @@ class WorkFromHomeCommand extends AbstractCommand implements WorkFromHome\Respon
 {
     public function configure()
     {
-        $this->setRegex('/wfh (.+)/iu');
+        $this->setRegex('/(?:wfh|WFH) (.+)/iu');
     }
 
     public function execute(string $message, User $user, Channel $channel)
