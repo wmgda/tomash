@@ -2,30 +2,28 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\TempAbstractCommand;
 use Domain\Model\Lunch\MenuItem;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Channel;
 use Slack\User;
-use Spatie\Regex\Regex;
 
-class IAmEatingCommand extends AbstractCommand implements AddItemToOrder\Responder
+class IAmEatingCommand extends TempAbstractCommand implements AddItemToOrder\Responder
 {
+    public function configure()
+    {
+        $this->setRegex('/(?:jem|biore|biorę|dla mnie) (\w+) (\d{1,3})/iu');
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
 
-        $regex = Regex::match('/(?:jem|biore|biorę|dla mnie) (\w+) (\d{1,3})/iu', $message);
+        $this->addItemToOrder($this->getPart(1), $this->getPart(2));
 
-        if ($regex->hasMatch()) {
-            $this->addItemToOrder($regex->group(1), $regex->group(2));
-
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     protected function addItemToOrder(string $restaurant, int $position)

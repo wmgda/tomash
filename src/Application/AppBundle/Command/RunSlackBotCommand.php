@@ -11,6 +11,7 @@ use Application\AppBundle\SlackCommand\PingCommand;
 use Application\AppBundle\SlackCommand\Absence\WhereIsCommand;
 use Application\AppBundle\SlackCommand\Absence\WhoIsAbsentCommand;
 use Application\AppBundle\SlackCommand\Absence\AbsenceCommand;
+use Application\Slack\Matcher;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -24,6 +25,7 @@ class RunSlackBotCommand extends ContainerAwareCommand
             ->setName('slackbot:run')
             ->setDescription('Run Slackbot')
             ->addArgument('token', InputArgument::REQUIRED, 'Token')
+            ->addArgument('botid', InputArgument::REQUIRED, 'Bot ID')
         ;
     }
 
@@ -34,26 +36,28 @@ class RunSlackBotCommand extends ContainerAwareCommand
         $client = new \Slack\RealTimeClient($loop);
         $client->setToken($input->getArgument('token'));
 
-        $client->on('message', function ($data) use ($client) {
+        $botId = $input->getArgument('botid');
+
+        $client->on('message', function ($data) use ($client, $botId) {
             if (!$data['text']) {
                 return;
             }
 
-            $message = $this->parseMessage($data['text']);
+            $message = $this->parseMessage($data['text'], $botId);
 
             if (!$message) {
                 return;
             }
 
             $commands = [
-                new PingCommand($client),
-                new IAmEatingCommand($client),
+//                new PingCommand($client),
                 new WeAreEatingCommand($client),
+                new IAmEatingCommand($client),
                 new SumUpCommand($client),
                 new VindicateCommand($client),
-                new AbsenceCommand($client),
-                new WhereIsCommand($client),
-                new WhoIsAbsentCommand($client),
+//                new AbsenceCommand($client),
+//                new WhereIsCommand($client),
+//                new WhoIsAbsentCommand($client),
                 new CloseCommand($client),
             ];
 
@@ -65,13 +69,14 @@ class RunSlackBotCommand extends ContainerAwareCommand
                 return $channel;
             });
 
-            \React\Promise\all([$username, $channel])->then(function ($data) use ($commands, $message) {
-                foreach ($commands as $command) {
-                    $result = $command->execute($message, $data[0], $data[1]);
+            $matcher = new Matcher();
+            $matcher->registerCommands($commands);
 
-                    if ($result) {
-                        break;
-                    }
+            \React\Promise\all([$username, $channel])->then(function ($data) use ($matcher, $message) {
+                $command = $matcher->matchCommand($message);
+
+                if($command) {
+                    $command->execute($message, $data[0], $data[1]);
                 }
             });
         });
@@ -83,9 +88,10 @@ class RunSlackBotCommand extends ContainerAwareCommand
         $loop->run();
     }
 
-    protected function parseMessage(string $message)
+    protected function parseMessage(string $message, string $botId)
     {
-        $matches = preg_match('/\<\@U261PFXBM\>:?(?<text>.+)/', $message, $results);
+//        $matches = preg_match('/\<\@U261PFXBM\>:?(?<text>.+)/', $message, $results);
+        $matches = preg_match('/\<\@' . $botId . '\>:?(?<text>.+)/', $message, $results);
 
         if (!$matches) {
             return false;

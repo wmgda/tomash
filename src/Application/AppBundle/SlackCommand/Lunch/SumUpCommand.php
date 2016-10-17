@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\TempAbstractCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
@@ -12,21 +12,20 @@ use Slack\Message\MessageBuilder;
 use Slack\User;
 use Spatie\Regex\Regex;
 
-class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
+class SumUpCommand extends TempAbstractCommand implements SumUpOrder\Responder
 {
+    public function configure()
+    {
+        $this->setRegex('/podsumuj (.+)/');
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
 
-        $regex = Regex::match('/podsumuj (.+)/', $message);
+        $this->sumUpOrder($this->getPart(1));
 
-        if ($regex->hasMatch()) {
-            $this->sumUpOrder($regex->group(1));
-
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     protected function sumUpOrder(string $restaurant)

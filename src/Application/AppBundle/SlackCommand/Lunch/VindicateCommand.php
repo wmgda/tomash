@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\TempAbstractCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\CollectBill;
 use Infrastructure\File\OrderStorage;
@@ -10,23 +10,21 @@ use Slack\Channel;
 use Slack\Message\Attachment;
 use Slack\Message\MessageBuilder;
 use Slack\User;
-use Spatie\Regex\Regex;
 
-class VindicateCommand extends AbstractCommand implements CollectBill\Responder
+class VindicateCommand extends TempAbstractCommand implements CollectBill\Responder
 {
+    public function configure()
+    {
+        $this->setRegex('/windykuj (.+)/iu');
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
 
-        $regex = Regex::match('/windykuj (.+)/iu', $message);
+        $this->collectBill($this->getPart(1));
 
-        if ($regex->hasMatch()) {
-            $this->collectBill($regex->group(1));
-
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     protected function collectBill(string $restaurant)

@@ -19,6 +19,11 @@ class AbsenceCommand extends AbstractCommand implements
     TakeSickLeave\Responder,
     WorkFromHome\Responder
 {
+    public function configure()
+    {
+
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);

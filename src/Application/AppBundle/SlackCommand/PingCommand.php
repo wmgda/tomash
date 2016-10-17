@@ -7,6 +7,11 @@ use Slack\User;
 
 class PingCommand extends AbstractCommand
 {
+    public function configure()
+    {
+
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         if ($message == 'ping') {

@@ -2,28 +2,26 @@
 
 namespace Application\AppBundle\SlackCommand\Lunch;
 
-use Application\AppBundle\SlackCommand\AbstractCommand;
+use Application\AppBundle\SlackCommand\TempAbstractCommand;
 use Domain\UseCase\Lunch\CloseOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Channel;
 use Slack\User;
-use Spatie\Regex\Regex;
 
-class CloseCommand extends AbstractCommand implements CloseOrder\Responder
+class CloseCommand extends TempAbstractCommand implements CloseOrder\Responder
 {
+    public function configure()
+    {
+        $this->setRegex('/zamknij (\w+)/');
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
 
-        $regex = Regex::match('/zamknij (\w+)/', $message);
+        $this->closeOrder($this->getPart(1));
 
-        if ($regex->hasMatch()) {
-            $this->closeOrder($regex->group(1));
-
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
     public function closeOrder(string $restaurant)

@@ -14,6 +14,11 @@ use Spatie\Regex\Regex;
 
 class WhoIsAbsentCommand extends AbstractCommand implements ListAbsent\Responder
 {
+    public function configure()
+    {
+
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);

@@ -12,6 +12,11 @@ use Spatie\Regex\Regex;
 
 class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
 {
+    public function configure()
+    {
+
+    }
+
     public function execute(string $message, User $user, Channel $channel)
     {
         parent::execute($message, $user, $channel);
