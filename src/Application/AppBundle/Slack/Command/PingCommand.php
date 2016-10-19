@@ -2,9 +2,6 @@
 
 namespace Application\AppBundle\Slack\Command;
 
-use Slack\Channel;
-use Slack\User;
-
 class PingCommand extends AbstractCommand
 {
     public function configure()
@@ -12,10 +9,8 @@ class PingCommand extends AbstractCommand
         $this->setRegex('/ping/');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        $this->client->send('@' . $user->getUsername() . ' pong!', $channel);
-
-        return true;
+        $output->setText('pong!');
     }
 }

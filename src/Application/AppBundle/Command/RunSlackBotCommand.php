@@ -54,18 +54,18 @@ class RunSlackBotCommand extends ContainerAwareCommand
             }
 
             $commands = [
-//                new PingCommand($client),
+                new PingCommand(),
 //                new WeAreEatingCommand($client),
 //                new IAmEatingCommand($client),
 //                new SumUpCommand($client),
 //                new VindicateCommand($client),
+//                new CloseCommand($client),
                 new DelegationCommand(),
-//                new HolidayCommand($client),
-//                new SickLeaveCommand($client),
-//                new WorkFromHomeCommand($client),
+                new HolidayCommand(),
+                new SickLeaveCommand(),
+                new WorkFromHomeCommand(),
                 new WhereIsCommand(),
                 new WhoIsAbsentCommand(),
-//                new CloseCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {

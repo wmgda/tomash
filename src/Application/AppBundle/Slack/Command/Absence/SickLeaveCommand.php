@@ -3,32 +3,35 @@
 namespace Application\AppBundle\Slack\Command\Absence;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
 use Domain\UseCase\Absence\TakeSickLeave;
 use Domain\UseCase\Absence\WorkFromHome;
 use Infrastructure\File\AbsenceStorage;
-use Slack\Channel;
-use Slack\User;
 
 class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/(?:zwolnienie|l4|L4) (.+)/iu');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $period = $this->getPeriod($this->getPart(1));
 
         $useCase = new TakeSickLeave(new AbsenceStorage());
         $useCase->execute(
             new TakeSickLeave\Command(
-                $user->getUsername(),
+                $input->getUsername(),
                 $period['startDate'],
                 $period['endDate']
             ),
@@ -38,11 +41,11 @@ class SickLeaveCommand extends AbstractCommand implements TakeSickLeave\Responde
 
     public function sickLeaveTakenSuccessfully()
     {
-        $this->reply('Szybkiego powrotu do zdrowia! :face_with_thermometer:');
+        $this->output->setText('Szybkiego powrotu do zdrowia! :face_with_thermometer:');
     }
 
     public function failedToTakeSickLeave(AbsenceException $exception)
     {
-        $this->reply('Nie symuluj! Wracaj do roboty! :(');
+        $this->output->setText('Nie symuluj! Wracaj do roboty! :(');
     }
 }

@@ -3,32 +3,35 @@
 namespace Application\AppBundle\Slack\Command\Absence;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Exception\AbsenceException;
 use Domain\UseCase\Absence\TakeDelegation;
 use Domain\UseCase\Absence\TakeHoliday;
 use Domain\UseCase\Absence\TakeSickLeave;
 use Domain\UseCase\Absence\WorkFromHome;
 use Infrastructure\File\AbsenceStorage;
-use Slack\Channel;
-use Slack\User;
 
 class HolidayCommand extends AbstractCommand implements TakeHoliday\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/urlop (.+)/iu');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $period = $this->getPeriod($this->getPart(1));
 
         $useCase = new TakeHoliday(new AbsenceStorage());
         $useCase->execute(
             new TakeHoliday\Command(
-                $user->getUsername(),
+                $input->getUsername(),
                 $period['startDate'],
                 $period['endDate']
             ),
@@ -38,11 +41,11 @@ class HolidayCommand extends AbstractCommand implements TakeHoliday\Responder
 
     public function holidayTakenSuccessfully()
     {
-        $this->reply('Udanego wypoczynku! :) :sunny:');
+        $this->output->setText('Udanego wypoczynku! :) :sunny:');
     }
 
     public function failedToTakeHoliday(AbsenceException $exception)
     {
-        $this->reply('W pracy nie pada!');
+        $this->output->setText('W pracy nie pada!');
     }
 }
