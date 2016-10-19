@@ -5,12 +5,13 @@ namespace Application\AppBundle\Slack\Command\Lunch;
 use Application\AppBundle\Slack\Command\AbstractCommand;
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\Model\Lunch\MenuItem;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\AddItemToOrder;
 use Infrastructure\File\OrderStorage;
 
-class IAmEatingCommand extends AbstractCommand implements AddItemToOrder\Responder
+class IAmEatingCommand extends AbstractCommand implements SlackCommand, AddItemToOrder\Responder
 {
     /** @var CommandOutput */
     private $output;

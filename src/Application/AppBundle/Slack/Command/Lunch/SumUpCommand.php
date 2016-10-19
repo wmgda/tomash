@@ -5,12 +5,13 @@ namespace Application\AppBundle\Slack\Command\Lunch;
 use Application\AppBundle\Slack\Command\AbstractCommand;
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Message\Attachment;
 
-class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
+class SumUpCommand extends AbstractCommand implements SlackCommand, SumUpOrder\Responder
 {
     /** @var CommandOutput */
     private $output;

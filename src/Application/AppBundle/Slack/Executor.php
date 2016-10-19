@@ -4,6 +4,7 @@ namespace Application\AppBundle\Slack;
 
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\NoCommandMatchesException;
 use Slack\ApiClient;
 use Slack\Channel;
 use Slack\Message\MessageBuilder;
@@ -14,6 +15,7 @@ class Executor
     /** @var ApiClient */
     protected $client;
 
+    /** @var \Application\AppBundle\Slack\Matcher */
     protected $matcher;
 
     public function __construct(ApiClient $client, Matcher $matcher)
@@ -24,7 +26,11 @@ class Executor
 
     public function run(string $message, User $user, Channel $channel)
     {
-        $command = $this->matcher->matchCommand($message);
+        try {
+            $command = $this->matcher->matchCommand($message);
+        } catch (NoCommandMatchesException $e) {
+            return;
+        }
 
         $input = new CommandInput();
         $output = new CommandOutput();

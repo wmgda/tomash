@@ -5,11 +5,12 @@ namespace Application\AppBundle\Slack\Command\Absence;
 use Application\AppBundle\Slack\Command\AbstractCommand;
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\WhereIs;
 use Infrastructure\File\AbsenceStorage;
 
-class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
+class WhereIsCommand extends AbstractCommand implements SlackCommand, WhereIs\Responder
 {
     private $output;
 

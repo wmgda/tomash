@@ -5,13 +5,14 @@ namespace Application\AppBundle\Slack\Command\Lunch;
 use Application\AppBundle\Slack\Command\AbstractCommand;
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\InitializeOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Message\Attachment;
 
-class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Responder
+class WeAreEatingCommand extends AbstractCommand implements SlackCommand, InitializeOrder\Responder
 {
     /** @var CommandOutput */
     private $output;

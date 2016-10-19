@@ -5,10 +5,11 @@ namespace Application\AppBundle\Slack\Command\Lunch;
 use Application\AppBundle\Slack\Command\AbstractCommand;
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\UseCase\Lunch\CloseOrder;
 use Infrastructure\File\OrderStorage;
 
-class CloseCommand extends AbstractCommand implements CloseOrder\Responder
+class CloseCommand extends AbstractCommand implements SlackCommand, CloseOrder\Responder
 {
     /** @var CommandOutput */
     private $output;

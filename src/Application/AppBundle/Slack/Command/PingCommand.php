@@ -2,7 +2,7 @@
 
 namespace Application\AppBundle\Slack\Command;
 
-class PingCommand extends AbstractCommand
+class PingCommand extends AbstractCommand implements SlackCommand
 {
     public function configure()
     {

@@ -5,12 +5,13 @@ namespace Application\AppBundle\Slack\Command\Lunch;
 use Application\AppBundle\Slack\Command\AbstractCommand;
 use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
+use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\CollectBill;
 use Infrastructure\File\OrderStorage;
 use Slack\Message\Attachment;
 
-class VindicateCommand extends AbstractCommand implements CollectBill\Responder
+class VindicateCommand extends AbstractCommand implements SlackCommand, CollectBill\Responder
 {
     /** @var CommandOutput */
     private $output;
