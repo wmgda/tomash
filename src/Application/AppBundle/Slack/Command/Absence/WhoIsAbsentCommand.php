@@ -3,24 +3,26 @@
 namespace Application\AppBundle\Slack\Command\Absence;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\ListAbsent;
 use Infrastructure\File\AbsenceStorage;
-use Slack\Channel;
 use Slack\Message\Attachment;
-use Slack\Message\MessageBuilder;
-use Slack\User;
 
 class WhoIsAbsentCommand extends AbstractCommand implements ListAbsent\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/nieobecni (.+)/');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $period = $this->getPeriod($this->getPart(1));
 
@@ -30,28 +32,20 @@ class WhoIsAbsentCommand extends AbstractCommand implements ListAbsent\Responder
 
     public function allAreAtWork()
     {
-        $this->reply('Wszyscy pracują. Niewiarygodne!');
+        $this->output->setText('Wszyscy pracują. Niewiarygodne!');
     }
 
     public function absentWorkersListedSuccessfully(string $date, array $absenceData)
     {
-        $this->advancedReply(function (MessageBuilder $builder) use ($date, $absenceData) {
-            $lines = [];
-            $builder->setText('<@' . $this->user->getId() . '> ');
-
-            foreach ($absenceData as $user => $reason) {
-                $lines[] = sprintf('%s %s', $user, Absence::reason($reason));
-            }
-
-            $attachment = new Attachment('Nieobecni '.$date, implode($lines, "\n"));
-            $builder->addAttachment($attachment);
-
-            return $builder;
-        });
+        foreach ($absenceData as $user => $reason) {
+            $lines[] = sprintf('%s %s', $user, Absence::reason($reason));
+        }
+        $attachment = new Attachment('Nieobecni '.$date, implode($lines, "\n"));
+        $this->output->setAttachment($attachment);
     }
 
     public function absentWorkersListFailed()
     {
-        $this->reply('Coś nie zadziałało. Trzeba policzyć ręcznie.');
+        $this->output->setText('Coś nie zadziałało. Trzeba policzyć ręcznie.');
     }
 }

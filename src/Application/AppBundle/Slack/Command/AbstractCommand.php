@@ -2,33 +2,16 @@
 
 namespace Application\AppBundle\Slack\Command;
 
-use Slack\ApiClient;
-use Slack\Channel;
-use Slack\User;
 use Spatie\Regex\MatchResult;
 use Spatie\Regex\Regex;
 
 abstract class AbstractCommand
 {
-    /** @var ApiClient */
-    protected $client;
-
-    /** @var User */
-    protected $user;
-
-    /** @var Channel */
-    protected $channel;
-
     /** @var string */
     protected $regexPattern;
 
     /** @var MatchResult */
     protected $regex;
-
-    public function __construct(ApiClient $client)
-    {
-        $this->client = $client;
-    }
 
     public function setRegex(string $regex)
     {
@@ -45,27 +28,6 @@ abstract class AbstractCommand
     public function getPart(int $index) : string
     {
         return $this->regex->group($index);
-    }
-
-    public function execute(string $message, User $user, Channel $channel)
-    {
-        $this->user = $user;
-        $this->channel = $channel;
-    }
-
-    protected function reply(string $message)
-    {
-        $this->client->send('<@' . $this->user->getId() . '> ' .$message, $this->channel);
-    }
-
-    protected function advancedReply(callable $callback)
-    {
-        $messageBuilder = $this->client->getMessageBuilder();
-        $messageBuilder->setChannel($this->channel);
-
-        $message = $callback($messageBuilder)->create();
-
-        $this->client->postMessage($message);
     }
 
     protected function getPeriod(string $date)

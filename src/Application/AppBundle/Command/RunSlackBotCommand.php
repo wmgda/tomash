@@ -14,6 +14,7 @@ use Application\AppBundle\Slack\Command\Lunch\CloseCommand;
 use Application\AppBundle\Slack\Command\PingCommand;
 use Application\AppBundle\Slack\Command\Absence\WhereIsCommand;
 use Application\AppBundle\Slack\Command\Absence\WhoIsAbsentCommand;
+use Application\AppBundle\Slack\Executor;
 use Application\AppBundle\Slack\Matcher;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
@@ -53,18 +54,18 @@ class RunSlackBotCommand extends ContainerAwareCommand
             }
 
             $commands = [
-                new PingCommand($client),
-                new WeAreEatingCommand($client),
-                new IAmEatingCommand($client),
-                new SumUpCommand($client),
-                new VindicateCommand($client),
-                new DelegationCommand($client),
-                new HolidayCommand($client),
-                new SickLeaveCommand($client),
-                new WorkFromHomeCommand($client),
-                new WhereIsCommand($client),
-                new WhoIsAbsentCommand($client),
-                new CloseCommand($client),
+//                new PingCommand($client),
+//                new WeAreEatingCommand($client),
+//                new IAmEatingCommand($client),
+//                new SumUpCommand($client),
+//                new VindicateCommand($client),
+                new DelegationCommand(),
+//                new HolidayCommand($client),
+//                new SickLeaveCommand($client),
+//                new WorkFromHomeCommand($client),
+                new WhereIsCommand(),
+                new WhoIsAbsentCommand(),
+//                new CloseCommand($client),
             ];
 
             $username = $client->getUserById($data['user'])->then(function ($user) {
@@ -77,13 +78,10 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
             $matcher = new Matcher();
             $matcher->registerCommands($commands);
+            $executor = new Executor($client, $matcher);
 
-            \React\Promise\all([$username, $channel])->then(function ($data) use ($matcher, $message) {
-                $command = $matcher->matchCommand($message);
-
-                if($command) {
-                    $command->execute($message, $data[0], $data[1]);
-                }
+            \React\Promise\all([$username, $channel])->then(function ($data) use ($executor, $message) {
+                $executor->run($message, $data[0], $data[1]);
             });
         });
 

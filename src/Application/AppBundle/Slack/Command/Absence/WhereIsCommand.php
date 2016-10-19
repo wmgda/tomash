@@ -3,22 +3,24 @@
 namespace Application\AppBundle\Slack\Command\Absence;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Model\Absence\Absence;
 use Domain\UseCase\Absence\WhereIs;
 use Infrastructure\File\AbsenceStorage;
-use Slack\Channel;
-use Slack\User;
 
 class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
 {
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/gdzie jest (.+)/iu');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $name = trim($this->getPart(1));
 
@@ -28,11 +30,11 @@ class WhereIsCommand extends AbstractCommand implements WhereIs\Responder
 
     public function entryNotFoundForPerson(string $person)
     {
-        $this->reply($person.' jest (powinien/powinna być) dzisiaj w pracy!');
+        $this->output->setText($person.' jest (powinien/powinna być) dzisiaj w pracy!');
     }
 
     public function personIs(array $absenceData)
     {
-        $this->reply($absenceData['person'].' '.Absence::reason($absenceData['type']));
+        $this->output->setText($absenceData['person'].' '.Absence::reason($absenceData['type']));
     }
 }
