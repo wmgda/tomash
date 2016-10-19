@@ -3,25 +3,27 @@
 namespace Application\AppBundle\Slack\Command\Lunch;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Exception\NotSupportedRestaurantException;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\InitializeOrder;
 use Infrastructure\File\OrderStorage;
-use Slack\Channel;
 use Slack\Message\Attachment;
-use Slack\Message\MessageBuilder;
-use Slack\User;
 
 class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/(?:jemy|zamawiamy) (.+)/iu');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $restaurant = $this->getPart(1);
 
@@ -34,39 +36,33 @@ class WeAreEatingCommand extends AbstractCommand implements InitializeOrder\Resp
     public function orderInitializedSuccessfully(Order $order)
     {
         $restaurant = $order->getRestaurant();
+        $this->output->setText('OK, zbieram zamówienia do #'. $restaurant->getName());
 
-        $this->advancedReply(function (MessageBuilder $builder) use ($order, $restaurant) {
-            $menuItems = [];
-            $text = 'OK, zbieram zamówienia do #'. $restaurant->getName();
-            $builder->setText('<@' . $this->user->getId() . '> ' . $text);
+        $menuItems = [];
+        foreach ($restaurant->getMenu() as $menuItem) {
+            $price = $menuItem->getPrice()->toFloat();
+            $price = number_format($price, 2, ',', ' ') . ' zł';
 
-            foreach ($restaurant->getMenu() as $menuItem) {
-                $price = $menuItem->getPrice()->toFloat();
-                $price = number_format($price, 2, ',', ' ') . ' zł';
+            $menuItems[] = sprintf(
+                '%d. %s [%s]',
+                $menuItem->getPosition(),
+                $menuItem->getName(),
+                $price
+            );
+        }
 
-                $menuItems[] = sprintf(
-                    '%d. %s [%s]',
-                    $menuItem->getPosition(),
-                    $menuItem->getName(),
-                    $price
-                );
-            }
-
-            $attachment = new Attachment($restaurant->getFullName() .' Menu', implode($menuItems, "\n"));
-            $builder->addAttachment($attachment);
-
-            return $builder;
-        });
+        $attachment = new Attachment($restaurant->getFullName() .' Menu', implode($menuItems, "\n"));
+        $this->output->setAttachment($attachment);
     }
 
     public function orderInitializationFailed(\Exception $e)
     {
         if ($e instanceof NotSupportedRestaurantException) {
-            $this->reply('Nie ma takiej restauracji');
+            $this->output->setText('Nie ma takiej restauracji');
 
             return;
         }
 
-        $this->reply('Coś się zapsuło i nie ma zamawiania :(');
+        $this->output->setText('Coś się zapsuło i nie ma zamawiania :(');
     }
 }

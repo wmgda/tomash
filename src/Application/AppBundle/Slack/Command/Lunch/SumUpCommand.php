@@ -3,24 +3,26 @@
 namespace Application\AppBundle\Slack\Command\Lunch;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
-use Slack\Channel;
 use Slack\Message\Attachment;
-use Slack\Message\MessageBuilder;
-use Slack\User;
 
 class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/podsumuj (.+)/');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $restaurant = $this->getPart(1);
 
@@ -32,29 +34,24 @@ class SumUpCommand extends AbstractCommand implements SumUpOrder\Responder
 
     public function successfullySummedUpOrder(Order $order, array $items)
     {
-        $this->advancedReply(function (MessageBuilder $builder) use ($order, $items) {
-            $lines = [];
-            $text = 'Lista zamówień w #'. $order->getRestaurant()->getName();
-            $builder->setText('<@' . $this->user->getId() . '> ' . $text);
+        $this->output->setText('Lista zamówień w #'. $order->getRestaurant()->getName());
 
-            foreach ($items as $item) {
-                $lines[] = sprintf(
-                    '%d. %s x%d',
-                    $item['item']->getPosition(),
-                    $item['item']->getName(),
-                    $item['qty']
-                );
-            }
+        $lines = [];
+        foreach ($items as $item) {
+            $lines[] = sprintf(
+                '%d. %s x%d',
+                $item['item']->getPosition(),
+                $item['item']->getName(),
+                $item['qty']
+            );
+        }
 
-            $attachment = new Attachment('Zamówienia', implode($lines, "\n"));
-            $builder->addAttachment($attachment);
-
-            return $builder;
-        });
+        $attachment = new Attachment('Zamówienia', implode($lines, "\n"));
+        $this->output->setAttachment($attachment);
     }
 
     public function sumUpOrderFailed(\Exception $e)
     {
-        $this->reply('nie udało się wykonać polecenia');
+        $this->output->setText('nie udało się wykonać polecenia');
     }
 }

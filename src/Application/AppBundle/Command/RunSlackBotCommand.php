@@ -55,11 +55,11 @@ class RunSlackBotCommand extends ContainerAwareCommand
 
             $commands = [
                 new PingCommand(),
-//                new WeAreEatingCommand($client),
-//                new IAmEatingCommand($client),
-//                new SumUpCommand($client),
-//                new VindicateCommand($client),
-//                new CloseCommand($client),
+                new WeAreEatingCommand(),
+                new IAmEatingCommand(),
+                new SumUpCommand(),
+                new VindicateCommand(),
+                new CloseCommand(),
                 new DelegationCommand(),
                 new HolidayCommand(),
                 new SickLeaveCommand(),

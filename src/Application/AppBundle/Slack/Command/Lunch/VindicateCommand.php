@@ -3,28 +3,30 @@
 namespace Application\AppBundle\Slack\Command\Lunch;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\Model\Lunch\Order;
 use Domain\UseCase\Lunch\CollectBill;
 use Infrastructure\File\OrderStorage;
-use Slack\Channel;
 use Slack\Message\Attachment;
-use Slack\Message\MessageBuilder;
-use Slack\User;
 
 class VindicateCommand extends AbstractCommand implements CollectBill\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/windykuj (.+)/iu');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $restaurant = $this->getPart(1);
 
-        $command = new CollectBill\Command($restaurant, $this->user->getId());
+        $command = new CollectBill\Command($restaurant, $input->getUsername());
 
         $useCase = new CollectBill(new OrderStorage());
         $useCase->execute($command, $this);
@@ -32,34 +34,29 @@ class VindicateCommand extends AbstractCommand implements CollectBill\Responder
 
     public function billCollectedSuccessfully(Order $order, float $totalSum)
     {
-        $this->advancedReply(function (MessageBuilder $builder) use ($order, $totalSum) {
-            $lines = [];
-            $text = 'Lista zamówień w #'. $order->getRestaurant()->getName();
-            $builder->setText('<@' . $this->user->getId() . '> ' . $text);
+        $this->output->setText('Lista zamówień w #'. $order->getRestaurant()->getName());
 
-            foreach ($order->getParticipants() as $participant) {
-                $sum = 0;
+        $lines = [];
+        foreach ($order->getParticipants() as $participant) {
+            $sum = 0;
 
-                foreach ($participant->getItems() as $item) {
-                    $sum += $item->getPrice()->toFloat();
-                }
-
-                $lines[] = sprintf(
-                    '<@%s> %s zł',
-                    $participant->getName(),
-                    number_format($sum, 2, ',', ' ')
-                );
+            foreach ($participant->getItems() as $item) {
+                $sum += $item->getPrice()->toFloat();
             }
 
-            $attachment = new Attachment('Zamówienia', implode($lines, "\n"));
-            $builder->addAttachment($attachment);
+            $lines[] = sprintf(
+                '<@%s> %s zł',
+                $participant->getName(),
+                number_format($sum, 2, ',', ' ')
+            );
+        }
 
-            return $builder;
-        });
+        $attachment = new Attachment('Zamówienia', implode($lines, "\n"));
+        $this->output->setAttachment($attachment);
     }
 
     public function collectingBillFailed(\Exception $e)
     {
-        $this->reply('nie udało się wykonać polecenia');
+        $this->output->setText('nie udało się wykonać polecenia');
     }
 }

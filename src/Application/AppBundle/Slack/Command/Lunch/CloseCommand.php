@@ -3,21 +3,24 @@
 namespace Application\AppBundle\Slack\Command\Lunch;
 
 use Application\AppBundle\Slack\Command\AbstractCommand;
+use Application\AppBundle\Slack\Command\CommandInput;
+use Application\AppBundle\Slack\Command\CommandOutput;
 use Domain\UseCase\Lunch\CloseOrder;
 use Infrastructure\File\OrderStorage;
-use Slack\Channel;
-use Slack\User;
 
 class CloseCommand extends AbstractCommand implements CloseOrder\Responder
 {
+    /** @var CommandOutput */
+    private $output;
+
     public function configure()
     {
         $this->setRegex('/zamknij (\w+)/');
     }
 
-    public function execute(string $message, User $user, Channel $channel)
+    public function execute(CommandInput $input, CommandOutput $output)
     {
-        parent::execute($message, $user, $channel);
+        $this->output = $output;
 
         $restaurant = $this->getPart(1);
 
@@ -29,11 +32,11 @@ class CloseCommand extends AbstractCommand implements CloseOrder\Responder
 
     public function orderClosedSuccessfully(string $restaurantName)
     {
-        $this->reply('Smacznego! :curry:');
+        $this->output->setText('Smacznego! :curry:');
     }
 
     public function closingOrderFailed(\Exception $e)
     {
-        $this->reply('Nie udało się zamknąć :(');
+        $this->output->setText('Nie udało się zamknąć :(');
     }
 }
