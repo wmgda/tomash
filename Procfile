@@ -1,1 +1,1 @@
-web: bin/console slackbot:run $SLACK_TOKEN
+bot: bin/console slackbot:run $SLACK_TOKEN
