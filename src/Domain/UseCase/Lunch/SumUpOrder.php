@@ -3,6 +3,7 @@
 namespace Domain\UseCase\Lunch;
 
 use Domain\Model\Lunch\MenuItem;
+use Domain\Model\Lunch\OrderedMenuItem;
 use Domain\Model\Lunch\Participant;
 use Domain\Storage\OrderStorage;
 use Domain\UseCase\Lunch\SumUpOrder\Command;
@@ -32,17 +33,22 @@ class SumUpOrder
 
             foreach ($order->getParticipants() as $participant) {
                 foreach ($participant->getItems() as $item) {
-                    $items[] = $item;
+                    $items[] = new OrderedMenuItem($item, $participant);
                 }
             }
 
-            /** @var MenuItem $item */
+            /** @var OrderedMenuItem $item */
             foreach ($items as $item) {
-                if (!array_key_exists($item->getPosition(), $summedItems)) {
-                    $summedItems[$item->getPosition()] = ['qty' => 0, 'item' => $item];
+                if (!array_key_exists($item->getItem()->getPosition(), $summedItems)) {
+                    $summedItems[$item->getItem()->getPosition()] = [
+                        'qty' => 0,
+                        'item' => $item->getItem(),
+                        'purchasers' => []
+                    ];
                 }
 
-                $summedItems[$item->getPosition()]['qty'] = $summedItems[$item->getPosition()]['qty'] + 1;
+                $summedItems[$item->getItem()->getPosition()]['qty'] = $summedItems[$item->getItem()->getPosition()]['qty'] + 1;
+                $summedItems[$item->getItem()->getPosition()]['purchasers'][] = $item->getParticipant()->getName();
             }
         } catch (\Exception $e) {
             $responder->sumUpOrderFailed($e);
