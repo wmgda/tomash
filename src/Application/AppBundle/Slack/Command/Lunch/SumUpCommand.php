@@ -45,6 +45,13 @@ class SumUpCommand extends AbstractCommand implements SlackCommand, SumUpOrder\R
                 $item['item']->getName(),
                 $item['qty']
             );
+            foreach ($item['purchasers'] as $purchaserName) {
+                $lines[] = sprintf(
+                    '    - %s: %s',
+                    $purchaserName,
+                    (string) $item['item']->getPrice()
+                );
+            }
         }
 
         $attachment = new Attachment('Zamówienia', implode($lines, "\n"));
