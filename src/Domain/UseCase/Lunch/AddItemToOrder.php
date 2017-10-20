@@ -46,7 +46,12 @@ class AddItemToOrder
             $responder->addingItemToOrderFailed($e);
         }
 
-        $responder->successfullyAddedItemToOrder($this->order, $command->getUser(), $this->menuItem);
+        $responder->successfullyAddedItemToOrder(
+            $this->order,
+            $command->getUser(),
+            $this->menuItem,
+            $command->getAnnotation()
+        );
     }
 
     /**

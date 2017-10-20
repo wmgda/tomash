@@ -35,12 +35,21 @@ class IAmEatingCommand extends AbstractCommand implements SlackCommand, AddItemT
         $useCase->execute($command, $this);
     }
 
-    public function successfullyAddedItemToOrder(Order $order, string $userName, MenuItem $addedMenuItem)
-    {
+    public function successfullyAddedItemToOrder(
+        Order $order,
+        string $userName,
+        MenuItem $addedMenuItem,
+        string $annotation
+    ) {
         $price = $addedMenuItem->getPrice()->toFloat();
         $price = number_format($price, 2, ',', ' ') . ' zł';
 
-        $this->output->setText($addedMenuItem->getName() . ' dla Ciebie za ' . $price);
+        if (!empty($annotation)) {
+            $text = $addedMenuItem->getName() . '(' . $annotation . ')' . ' dla Ciebie za ' . $price;
+        } else {
+            $text = $addedMenuItem->getName() . ' dla Ciebie za ' . $price;
+        }
+        $this->output->setText($text);
     }
 
     public function addingItemToOrderFailed(\Exception $e)
