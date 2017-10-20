@@ -11,8 +11,14 @@ interface Responder
      * @param Order $order
      * @param string $userName
      * @param MenuItem $addedMenuItem
+     * @param string $annotation
      */
-    public function successfullyAddedItemToOrder(Order $order, string $userName, MenuItem $addedMenuItem);
+    public function successfullyAddedItemToOrder(
+        Order $order,
+        string $userName,
+        MenuItem $addedMenuItem,
+        string $annotation
+    );
 
     /**
      * @param \Exception $e
