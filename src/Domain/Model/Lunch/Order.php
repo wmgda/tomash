@@ -42,11 +42,12 @@ class Order
     /**
      * @param string $participantName
      * @param MenuItem $menuItem
+     * @param string $annotation
      */
-    public function add(string $participantName, MenuItem $menuItem)
+    public function add(string $participantName, MenuItem $menuItem, string $annotation)
     {
         $this->createParticipantIfNotExists($participantName);
-        $this->participants[$participantName]->addItem($menuItem);
+        $this->participants[$participantName]->addItem($menuItem, $annotation);
     }
 
     /**

@@ -7,6 +7,8 @@ use Application\AppBundle\Slack\Command\CommandInput;
 use Application\AppBundle\Slack\Command\CommandOutput;
 use Application\AppBundle\Slack\Command\SlackCommand;
 use Domain\Model\Lunch\Order;
+use Domain\Model\Lunch\Participant;
+use Domain\Model\Lunch\SummaryItem;
 use Domain\UseCase\Lunch\SumUpOrder;
 use Infrastructure\File\OrderStorage;
 use Slack\Message\Attachment;
@@ -38,18 +40,31 @@ class SumUpCommand extends AbstractCommand implements SlackCommand, SumUpOrder\R
         $this->output->setText('Lista zamówień w #'. $order->getRestaurant()->getName());
 
         $lines = [];
+        /**
+         * @var $item SummaryItem
+         */
         foreach ($items as $item) {
+            $itemPosition = $item->getOrderedMenuItem()->getItem()->getPosition();
             $lines[] = sprintf(
                 '%d. %s x%d',
-                $item['item']->getPosition(),
-                $item['item']->getName(),
-                $item['qty']
+                $itemPosition,
+                $item->getOrderedMenuItem()->getItem()->getName(),
+                $item->getQuantity()
             );
-            foreach ($item['purchasers'] as $purchaserName) {
+            /**
+             * @var $purchaser Participant
+             */
+            foreach ($item->getPurchasers() as $purchaser) {
+                $annotation = $purchaser->getItemAnnotation($itemPosition);
+                if (!empty($annotation)) {
+                    $annotation = '(' . $annotation . ')';
+                }
+
                 $lines[] = sprintf(
-                    '    - %s: %s',
-                    $purchaserName,
-                    (string) $item['item']->getPrice()
+                    '    - %s: %s %s',
+                    $purchaser->getName(),
+                    (string) $item->getOrderedMenuItem()->getItem()->getPrice(),
+                    $annotation
                 );
             }
         }
