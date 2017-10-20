@@ -45,7 +45,7 @@ class IAmEatingCommand extends AbstractCommand implements SlackCommand, AddItemT
         $price = number_format($price, 2, ',', ' ') . ' zł';
 
         if (!empty($annotation)) {
-            $text = $addedMenuItem->getName() . '(' . $annotation . ')' . ' dla Ciebie za ' . $price;
+            $text = $addedMenuItem->getName() . ' (' . trim($annotation) . ')' . ' dla Ciebie za ' . $price;
         } else {
             $text = $addedMenuItem->getName() . ' dla Ciebie za ' . $price;
         }
