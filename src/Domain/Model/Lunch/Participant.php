@@ -15,6 +15,11 @@ class Participant
     private $items;
 
     /**
+     * @var array
+     */
+    private $annotations;
+
+    /**
      * @var float
      */
     private $sum;
@@ -27,6 +32,7 @@ class Participant
         $this->name = $name;
         $this->items = [];
         $this->sum = 0.0;
+        $this->annotations = [];
     }
 
     /**
@@ -46,11 +52,27 @@ class Participant
     }
 
     /**
-     * @param MenuItem $position
+     * @param string $position
+     *
+     * @return string
      */
-    public function addItem(MenuItem $position)
+    public function getItemAnnotation(string $position)
+    {
+        if (!array_key_exists($position, $this->annotations)) {
+            return "";
+        }
+
+        return $this->annotations[$position];
+    }
+
+    /**
+     * @param MenuItem $position
+     * @param string $annotation
+     */
+    public function addItem(MenuItem $position, string $annotation)
     {
         $this->items[] = $position;
+        $this->annotations[$position->getPosition()] = $annotation;
         $this->increaseSum($position->getPrice()->toFloat());
     }
 

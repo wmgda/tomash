@@ -40,7 +40,7 @@ class AddItemToOrder
             $this->order = $this->storage->load($command->getRestaurant());
 
             $this->setMenuItem($command->getPosition());
-            $this->order->add($command->getUser(), $this->menuItem);
+            $this->order->add($command->getUser(), $this->menuItem, $command->getAnnotation());
             $this->storage->save($this->order);
         } catch (\Exception $e) {
             $responder->addingItemToOrderFailed($e);
