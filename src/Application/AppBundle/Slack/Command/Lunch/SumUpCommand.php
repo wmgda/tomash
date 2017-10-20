@@ -57,13 +57,16 @@ class SumUpCommand extends AbstractCommand implements SlackCommand, SumUpOrder\R
             foreach ($item->getPurchasers() as $purchaser) {
                 $annotation = $purchaser->getItemAnnotation($itemPosition);
                 if (!empty($annotation)) {
-                    $annotation = '(' . $annotation . ')';
+                    $annotation = '(' . trim($annotation) . ')';
                 }
+
+                $price = $item->getOrderedMenuItem()->getItem()->getPrice()->toFloat();
+                $price = number_format($price, 2, ',', ' ') . ' zł';
 
                 $lines[] = sprintf(
                     '    - %s: %s %s',
                     $purchaser->getName(),
-                    (string) $item->getOrderedMenuItem()->getItem()->getPrice(),
+                    $price,
                     $annotation
                 );
             }
