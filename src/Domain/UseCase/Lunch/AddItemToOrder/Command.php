@@ -20,15 +20,22 @@ class Command
     private $position;
 
     /**
+     * @var string
+     */
+    private $annotation;
+
+    /**
      * @param string $restaurant
      * @param string $user
      * @param string $position
+     * @param string $annotation
      */
-    public function __construct(string $restaurant, string $user, string $position)
+    public function __construct(string $restaurant, string $user, string $position, string $annotation)
     {
         $this->restaurant = $restaurant;
         $this->user = $user;
         $this->position = $position;
+        $this->annotation = $annotation;
     }
 
     /**
@@ -53,5 +60,13 @@ class Command
     public function getPosition()
     {
         return $this->position;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAnnotation(): string
+    {
+        return $this->annotation;
     }
 }

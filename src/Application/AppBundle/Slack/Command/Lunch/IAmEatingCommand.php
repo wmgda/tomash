@@ -18,7 +18,7 @@ class IAmEatingCommand extends AbstractCommand implements SlackCommand, AddItemT
 
     public function configure()
     {
-        $this->setRegex('/(?:jem|biore|biorę|dla mnie) (\w+) (\d{1,3})/iu');
+        $this->setRegex('/(?:jem|biore|biorę|dla mnie) (\w+) (\d{1,3})(.*)/iu');
     }
 
     public function execute(CommandInput $input, CommandOutput $output)
@@ -27,8 +27,9 @@ class IAmEatingCommand extends AbstractCommand implements SlackCommand, AddItemT
 
         $restaurant = $this->getPart(1);
         $position = $this->getPart(2);
+        $annotation = $this->getPart(3);
 
-        $command = new AddItemToOrder\Command($restaurant, $input->getUsername(), $position);
+        $command = new AddItemToOrder\Command($restaurant, $input->getUsername(), $position, $annotation);
 
         $useCase = new AddItemToOrder(new OrderStorage());
         $useCase->execute($command, $this);
