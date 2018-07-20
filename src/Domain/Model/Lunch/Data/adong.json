@@ -1,78 +1,246 @@
 [
   {
-    "position": "1",
-    "name": "Kurczak w pięciu smakach",
+    "position": 1,
+    "name": "Rosół z kurczakiem",
     "price": {
-      "zl": 16,
+      "zl": 7,
+      "gr": 50
+    }
+  },
+  {
+    "position": 2,
+    "name": "Zupa krabowa",
+    "price": {
+      "zl": 7,
+      "gr": 50
+    }
+  },
+  {
+    "position": 3,
+    "name": "Zupa krewetkowa",
+    "price": {
+      "zl": 8,
+      "gr": 50
+    }
+  },
+  {
+    "position": 4,
+    "name": "Zupa rybna",
+    "price": {
+      "zl": 8,
       "gr": 0
     }
   },
   {
-    "position": "2",
+    "position": 5,
+    "name": "Zupa pekińska",
+    "price": {
+      "zl": 9,
+      "gr": 0
+    }
+  },
+  {
+    "position": 6,
+    "name": "Zupa bambusowa tradycyjna",
+    "price": {
+      "zl": 7,
+      "gr": 50
+    }
+  },
+  {
+    "position": 7,
+    "name": "Zupa bambusowa po wietnamsku",
+    "price": {
+      "zl": 7,
+      "gr": 50
+    }
+  },
+  {
+    "position": 8,
+    "name": "Zupa firmowa A-Dong",
+    "price": {
+      "zl": 8,
+      "gr": 50
+    }
+  },
+  {
+    "position": 9,
+    "name": "Zupa Wonton",
+    "price": {
+      "zl": 9,
+      "gr": 0
+    }
+  },
+  {
+    "position": 10,
+    "name": "kwasno-pikant. z kurczakiem po thailandzku",
+    "price": {
+      "zl": 9,
+      "gr": 0
+    }
+  },
+  {
+    "position": 11,
+    "name": "kwasno-pikant. z krewetkami po thailandzku",
+    "price": {
+      "zl": 12,
+      "gr": 0
+    }
+  },
+  {
+    "position": 12,
+    "name": "Tom Yum z kurczakiem",
+    "price": {
+      "zl": 12,
+      "gr": 0
+    }
+  },
+  {
+    "position": 13,
+    "name": "Tom Yum z krewetkami",
+    "price": {
+      "zl": 13,
+      "gr": 0
+    }
+  },
+  {
+    "position": 14,
+    "name": "Zupa PHO z kurczakiem",
+    "price": {
+      "zl": 14,
+      "gr": 0
+    }
+  },
+  {
+    "position": 15,
+    "name": "Zupa PHO z wołowiną",
+    "price": {
+      "zl": 15,
+      "gr": 0
+    }
+  },
+  {
+    "position": 16,
+    "name": "Sajgonki (2 szt.) z surówką",
+    "price": {
+      "zl": 8,
+      "gr": 0
+    }
+  },
+  {
+    "position": 17,
+    "name": "Sajgonki (3 szt.) z surówką",
+    "price": {
+      "zl": 10,
+      "gr": 60
+    }
+  },
+  {
+    "position": 18,
+    "name": "Sajgonki (3 szt.) surówka + ryż",
+    "price": {
+      "zl": 13,
+      "gr": 50
+    }
+  },
+  {
+    "position": 19,
+    "name": "Sajgonki na sztuki",
+    "price": {
+      "zl": 2,
+      "gr": 70
+    }
+  },
+  {
+    "position": 20,
+    "name": "Sajgonki na sztuki (pow. 20 szt.)",
+    "price": {
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 21,
+    "name": "Kurczak w 5 smakach",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 22,
     "name": "Kurczak pikantny",
     "price": {
       "zl": 16,
-      "gr": 50
+      "gr": 99
     }
   },
   {
-    "position": "3",
+    "position": 23,
     "name": "Kurczak słodko-kwaśny",
     "price": {
-      "zl": 16,
-      "gr": 0
+      "zl": 15,
+      "gr": 99
     }
   },
   {
-    "position": "4",
+    "position": 24,
     "name": "Kurczak curry po thailandzku",
     "price": {
-      "zl": 17,
-      "gr": 50
+      "zl": 16,
+      "gr": 99
     }
   },
   {
-    "position": "5",
-    "name": "Kurczak na zielonym curry po thailandzku",
+    "position": 25,
+    "name": "Na zielonym curry po thailadzku",
     "price": {
       "zl": 17,
-      "gr": 50
+      "gr": 99
     }
   },
   {
-    "position": "6",
-    "name": "Kurczak na czerwonym curry po thailandzku",
+    "position": 26,
+    "name": "Kurczak na żółtym curry",
     "price": {
       "zl": 17,
-      "gr": 50
+      "gr": 99
     }
   },
   {
-    "position": "7",
+    "position": 27,
+    "name": "Na czerwonym curry po thailandzku",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 28,
     "name": "Kurczak w cieście kokosowym",
     "price": {
-      "zl": 17,
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 29,
+    "name": "Kurczak z grzybkami mun",
+    "price": {
+      "zl": 16,
       "gr": 50
     }
   },
   {
-    "position": "8",
-    "name": "Kurczak z grzybkami mun",
-    "price": {
-      "zl": 17,
-      "gr": 0
-    }
-  },
-  {
-    "position": "9",
+    "position": 30,
     "name": "Kurczak z kiełkami fasoli",
     "price": {
-      "zl": 16,
-      "gr": 0
+      "zl": 15,
+      "gr": 99
     }
   },
   {
-    "position": "10",
+    "position": 31,
     "name": "Kurczak z cukinią",
     "price": {
       "zl": 16,
@@ -80,31 +248,23 @@
     }
   },
   {
-    "position": "11",
-    "name": "Kurczak z warzywami po wietnamsku",
-    "price": {
-      "zl": 16,
-      "gr": 0
-    }
-  },
-  {
-    "position": "12",
-    "name": "Kurczak z fasolą strączkową",
+    "position": 32,
+    "name": "Kurczak z warz. po wietnamsku",
     "price": {
       "zl": 16,
       "gr": 50
     }
   },
   {
-    "position": "13",
-    "name": "Kurczak po sajgońsku z sezamem i kiełkami",
+    "position": 33,
+    "name": "Kurczak po sajgońsku",
     "price": {
-      "zl": 17,
-      "gr": 0
+      "zl": 16,
+      "gr": 50
     }
   },
   {
-    "position": "14",
+    "position": 34,
     "name": "Kurczak po wietnamsku",
     "price": {
       "zl": 16,
@@ -112,290 +272,1298 @@
     }
   },
   {
-    "position": "15",
+    "position": 35,
     "name": "Kurczak po chińsku",
     "price": {
-      "zl": 17,
-      "gr": 0
+      "zl": 16,
+      "gr": 99
     }
   },
   {
-    "position": "16",
-    "name": "Kurczak gongbao na półostro z orzechami",
+    "position": 36,
+    "name": "Kurczak Goongbao",
     "price": {
-      "zl": 17,
-      "gr": 0
+      "zl": 16,
+      "gr": 99
     }
   },
   {
-    "position": "17",
-    "name": "Kurczak w sosie hoisin",
+    "position": 37,
+    "name": "Kurczak chrupiący w sosie hoisin",
     "price": {
-      "zl": 17,
-      "gr": 50
+      "zl": 16,
+      "gr": 99
     }
   },
   {
-    "position": "18",
+    "position": 38,
     "name": "Kurczak firmowy A-Dong",
     "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 39,
+    "name": "Kurczak pikantny na miodzie",
+    "price": {
+      "zl": 18,
+      "gr": 50
+    }
+  },
+  {
+    "position": 40,
+    "name": "Filet chrupiący A-Dong",
+    "price": {
       "zl": 17,
       "gr": 50
     }
   },
   {
-    "position": "19",
-    "name": "Kurczak pikantny na miodzie w aromacie trawy cytrynowej",
+    "position": 41,
+    "name": "Filet chrupiący po thailandzku",
     "price": {
-      "zl": 18,
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 42,
+    "name": "Zestaw dla dzieci",
+    "price": {
+      "zl": 13,
+      "gr": 99
+    }
+  },
+  {
+    "position": 43,
+    "name": "Kurczak chili na winie",
+    "price": {
+      "zl": 17,
       "gr": 50
     }
   },
   {
-    "position": "20",
-    "name": "Filet chrupiący A-Dong",
+    "position": 44,
+    "name": "Kurczak chili ostry",
     "price": {
-      "zl": 18,
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 45,
+    "name": "Kurczak z orzechami nerkowca",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 46,
+    "name": "Kurczak Galachanh",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 47,
+    "name": "Kurczak panierowany Adong",
+    "price": {
+      "zl": 17,
       "gr": 0
     }
   },
   {
-    "position": "21",
-    "name": "Filet chrupiący po thailandzku",
+    "position": 48,
+    "name": "Kurczak Hongkong",
     "price": {
-      "zl": 18,
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 49,
+    "name": "Omlet A-Dong z kurczakiem",
+    "price": {
+      "zl": 16,
       "gr": 50
     }
   },
   {
-    "position": "22",
-    "name": "Kurczak chilli na winie",
+    "position": 50,
+    "name": "Pierś na maśle i czosnku",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 51,
+    "name": "Kaczka firmowa A-Dong",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 52,
+    "name": "Kaczka w sosie słodko-kwaśnym",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 53,
+    "name": "Kaczka w sosie pikantnym",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 54,
+    "name": "Kaczka z warzywami",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 55,
+    "name": "Kaczka w całości",
+    "price": {
+      "zl": 69,
+      "gr": 99
+    }
+  },
+  {
+    "position": 56,
+    "name": "Wieprzowina słodko-kwaśna",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 57,
+    "name": "Wieprzowina pikantna",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 58,
+    "name": "Wieprzowina w 5 smakach",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 59,
+    "name": "Wieprzowina curry",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 60,
+    "name": "Wieprzowina na żółtym curry",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 61,
+    "name": "Na zielonym curry po thailandzku",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 62,
+    "name": "Na czerwonym curry po thailandzku",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 63,
+    "name": "Wieprzowina z grzybkami mun",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": 64,
+    "name": "Z fasolą szparagową",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 65,
+    "name": "Wieprzowina z kiełkami fasoli",
+    "price": {
+      "zl": 16,
+      "gr": 0
+    }
+  },
+  {
+    "position": 66,
+    "name": "Wieprzowina po chińsku",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 67,
+    "name": "Wieprzowina po wietnamsku",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": 68,
+    "name": "Wieprzowina z warz. po wietn.",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": 69,
+    "name": "Chrupkie pierozki wonton (7szt.)",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 70,
+    "name": "Golonka pikantna",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 71,
+    "name": "Golonka w 5 smakach",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": 72,
+    "name": "Golonka curry po thailandzku",
     "price": {
       "zl": 17,
       "gr": 50
     }
   },
   {
-    "position": "23",
-    "name": "Kurczak chilli ostry",
+    "position": 73,
+    "name": "Golonka z grzybkami mun",
     "price": {
-      "zl": 18,
+      "zl": 16,
       "gr": 50
     }
   },
   {
-    "position": "24",
-    "name": "Kurczak z orzechami nerkowca",
+    "position": 74,
+    "name": "Golonka A-dong",
     "price": {
-      "zl": 18,
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 75,
+    "name": "żeberka po syczuańsku",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 76,
+    "name": "Żeberka słodko-kwaśne",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 77,
+    "name": "Żeberka słodko-kwaśne po wietn.",
+    "price": {
+      "zl": 17,
       "gr": 50
     }
   },
   {
-    "position": "25",
+    "position": 78,
+    "name": "Żeberka na miodzie",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 79,
+    "name": "Cielęcina pikantna",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 80,
+    "name": "Cięlęcina w 5 smakach",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 81,
+    "name": "Cielęcina curry po thailandzku",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 82,
+    "name": "Cielęcina na żółtym curry",
+    "price": {
+      "zl": 22,
+      "gr": 99
+    }
+  },
+  {
+    "position": 83,
+    "name": "Cielęcina słodko-kwaśna",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 84,
+    "name": "Cielęcina z kiełkami fasoli",
+    "price": {
+      "zl": 22,
+      "gr": 0
+    }
+  },
+  {
+    "position": 85,
+    "name": "Cielęcina z warz. po wietnamsku",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 86,
+    "name": "Cielęcina po chińsku",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 87,
+    "name": "Cielęcina z pieczarkami",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 88,
     "name": "Wołowina pikantna",
     "price": {
       "zl": 18,
-      "gr": 50
+      "gr": 99
     }
   },
   {
-    "position": "26",
-    "name": "Wołowina w pięciu smakach",
+    "position": 89,
+    "name": "Wołowina w 5 smakach",
     "price": {
-      "zl": 18,
-      "gr": 50
+      "zl": 17,
+      "gr": 99
     }
   },
   {
-    "position": "27",
+    "position": 90,
     "name": "Wołowina z fasolą szparagową",
     "price": {
-      "zl": 18,
-      "gr": 50
+      "zl": 17,
+      "gr": 99
     }
   },
   {
-    "position": "28",
-    "name": "Wołowina z warzywami po wietnamsku",
+    "position": 91,
+    "name": "Wołowina z warz. po wietnamsku",
     "price": {
       "zl": 18,
       "gr": 50
     }
   },
   {
-    "position": "29",
-    "name": "Wołowina z warzywami rozmaitości",
+    "position": 92,
+    "name": "Wołowina z warz. rozmaitości",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 93,
+    "name": "Wołowina z kiełkami fasoli",
     "price": {
       "zl": 18,
       "gr": 50
     }
   },
   {
-    "position": "30",
-    "name": "Wołowina z kiełkami fasoli mung",
+    "position": 94,
+    "name": "Wołowina w sezamie",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 95,
+    "name": "Wołowina z brokułami i czosnkiem",
+    "price": {
+      "zl": 19,
+      "gr": 99
+    }
+  },
+  {
+    "position": 96,
+    "name": "WOŁOWINA Z IMBIREM I SELEREM NACJOWYM",
     "price": {
       "zl": 18,
       "gr": 50
     }
   },
   {
-    "position": "31",
-    "name": "Wołowina w sezamie na sosie sojowym i wytrawnym cherry",
+    "position": 97,
+    "name": "Filet z dorsza słodko-kwaśny",
+    "price": {
+      "zl": 19,
+      "gr": 99
+    }
+  },
+  {
+    "position": 98,
+    "name": "Filet z dorsza pikantny",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 99,
+    "name": "Filet z dorsza curry",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 100,
+    "name": "Dorsz na zielonym curry",
     "price": {
       "zl": 22,
+      "gr": 99
+    }
+  },
+  {
+    "position": 101,
+    "name": "Dorsz na czerwonym curry",
+    "price": {
+      "zl": 22,
+      "gr": 99
+    }
+  },
+  {
+    "position": 102,
+    "name": "Filet z dorsza w 5 smakach",
+    "price": {
+      "zl": 19,
+      "gr": 99
+    }
+  },
+  {
+    "position": 103,
+    "name": "Filet z dorsza po chińsku",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 104,
+    "name": "Filet z dorsza panierowany",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 105,
+    "name": "Cielęcina z na żóltym curry",
+    "price": {
+      "zl": 22,
+      "gr": 99
+    }
+  },
+  {
+    "position": 106,
+    "name": "Kalmary pikantne",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 107,
+    "name": "Kalmary curry po thailandzku",
+    "price": {
+      "zl": 19,
+      "gr": 99
+    }
+  },
+  {
+    "position": 108,
+    "name": "kal. na zielonym curry",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 109,
+    "name": "Kal. na czerwonym curry",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 110,
+    "name": "Kalmary smażone z warzywami",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 111,
+    "name": "Kalmary w cieście",
+    "price": {
+      "zl": 21,
+      "gr": 99
+    }
+  },
+  {
+    "position": 112,
+    "name": "Kalmary chrupiące",
+    "price": {
+      "zl": 22,
+      "gr": 99
+    }
+  },
+  {
+    "position": 113,
+    "name": "Krewetki pikantne",
+    "price": {
+      "zl": 23,
       "gr": 50
     }
   },
   {
-    "position": "32",
-    "name": "Wołowina ze świeżymi brokułami i czosnkiem po wietnamsku ",
+    "position": 114,
+    "name": "Krewetki curry",
     "price": {
-      "zl": 19,
-      "gr": 50
+      "zl": 23,
+      "gr": 99
     }
   },
   {
-    "position": "33",
-    "name": "Ryż smażony z kurczakiem",
+    "position": 115,
+    "name": "Na zielonym curry",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 116,
+    "name": "Krewetki na żółtym curry",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 117,
+    "name": "Na czerwonym curry",
+    "price": {
+      "zl": 24,
+      "gr": 99
+    }
+  },
+  {
+    "position": 118,
+    "name": "Krewetki słodko-kwaśne",
+    "price": {
+      "zl": 22,
+      "gr": 99
+    }
+  },
+  {
+    "position": 119,
+    "name": "Krewetki królewskie na maśle",
+    "price": {
+      "zl": 25,
+      "gr": 99
+    }
+  },
+  {
+    "position": 120,
+    "name": "Krewetki w cieście sezamowym",
+    "price": {
+      "zl": 25,
+      "gr": 99
+    }
+  },
+  {
+    "position": 121,
+    "name": "Krewetki w kokosowej panierce",
+    "price": {
+      "zl": 25,
+      "gr": 99
+    }
+  },
+  {
+    "position": 122,
+    "name": "Mak. soj. z kurczakiem",
     "price": {
       "zl": 16,
-      "gr": 0
+      "gr": 99
     }
   },
   {
-    "position": "34",
-    "name": "Ryż smażony z wieprzowiną",
+    "position": 123,
+    "name": "Mak. soj. z wieprzowiną",
     "price": {
       "zl": 16,
-      "gr": 0
+      "gr": 99
     }
   },
   {
-    "position": "35",
-    "name": "Ryż smażony z cielęciną",
+    "position": 124,
+    "name": "Mak. soj. z wołowiną",
+    "price": {
+      "zl": 17,
+      "gr": 99
+    }
+  },
+  {
+    "position": 125,
+    "name": "Mak. soj. z cielęciną",
     "price": {
       "zl": 19,
-      "gr": 0
+      "gr": 99
     }
   },
   {
-    "position": "36",
-    "name": "Ryż smażony z wołowiną",
+    "position": 126,
+    "name": "Mak. soj. z krewetkami",
+    "price": {
+      "zl": 19,
+      "gr": 99
+    }
+  },
+  {
+    "position": 127,
+    "name": "Mak. soj. z warzywami rozmaitości",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 128,
+    "name": "Mak. A-Dong z kurczakiem",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 129,
+    "name": "Mak. A-Dong z wieprzowiną",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 130,
+    "name": "Kalmary na żółtym curry",
+    "price": {
+      "zl": 20,
+      "gr": 99
+    }
+  },
+  {
+    "position": 131,
+    "name": "Mak. A-Dong z wołowiną",
+    "price": {
+      "zl": 16,
+      "gr": 99
+    }
+  },
+  {
+    "position": 132,
+    "name": "Mak. A-Dong z cielęciną",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 133,
+    "name": "Mak. A-Dong z krewetkami",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 134,
+    "name": "Mak. A-Dong z warzywami rozmaitości",
+    "price": {
+      "zl": 14,
+      "gr": 99
+    }
+  },
+  {
+    "position": 135,
+    "name": "Mak. thai. z kurczakiem",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 136,
+    "name": "Mak. thai. z wieprzowiną",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 137,
+    "name": "Mak. thai. z wołowiną",
     "price": {
       "zl": 17,
       "gr": 50
     }
   },
   {
-    "position": "37",
-    "name": "Ryż smażony z krewetkami",
-    "price": {
-      "zl": 19,
-      "gr": 0
-    }
-  },
-  {
-    "position": "38",
-    "name": "Ryż smażony z warzywami",
-    "price": {
-      "zl": 14,
-      "gr": 50
-    }
-  },
-  {
-    "position": "39",
-    "name": "2 sajgonki z surówką",
-    "price": {
-      "zl": 8,
-      "gr": 0
-    }
-  },
-  {
-    "position": "40",
-    "name": "3 sajgonki z surówką",
-    "price": {
-      "zl": 10,
-      "gr": 50
-    }
-  },
-  {
-    "position": "41",
-    "name": "3 sajgonki z surówką i ryżem",
-    "price": {
-      "zl": 12,
-      "gr": 50
-    }
-  },
-  {
-    "position": "42",
-    "name": "Żeberka po syczuańsku",
+    "position": 138,
+    "name": "Mak. thai. z cielęciną",
     "price": {
       "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 139,
+    "name": "Mak. thai. z krewetkami",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 140,
+    "name": "Mak. thai. z warzywami rozmaitości",
+    "price": {
+      "zl": 15,
+      "gr": 0
+    }
+  },
+  {
+    "position": 141,
+    "name": "Mak. ryżowy z kurczakiem",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 142,
+    "name": "Mak. ryżowy z wieprzowiną",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 143,
+    "name": "Mak. ryżowy z wołowiną",
+    "price": {
+      "zl": 17,
       "gr": 50
     }
   },
   {
-    "position": "43",
-    "name": "Krewetki pikantne",
+    "position": 144,
+    "name": "Mak. ryżowy z cielęciną",
     "price": {
-      "zl": 25,
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 145,
+    "name": "Mak. ryżowy z krewetkami",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 146,
+    "name": "Mak. ryżowy z warzywami rozmaitości",
+    "price": {
+      "zl": 14,
+      "gr": 99
+    }
+  },
+  {
+    "position": 147,
+    "name": "Ryż smażony z kurczakiem",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 148,
+    "name": "Ryż smażony z wieprzowiną",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 149,
+    "name": "Ryż smażony z cielęciną",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 150,
+    "name": "ryz smazony z wolowina",
+    "price": {
+      "zl": 17,
+      "gr": 50
+    }
+  },
+  {
+    "position": 151,
+    "name": "Ryż smażony z krewetkami",
+    "price": {
+      "zl": 18,
+      "gr": 99
+    }
+  },
+  {
+    "position": 152,
+    "name": "Ryż smażony z warzywami rozmaitości",
+    "price": {
+      "zl": 14,
+      "gr": 99
+    }
+  },
+  {
+    "position": 153,
+    "name": "Tofu w sosie pomidorowym",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 154,
+    "name": "Tofu w sosie słodko-kwaśnym",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 155,
+    "name": "Tofu w sosie pikantnym",
+    "price": {
+      "zl": 16,
+      "gr": 50
+    }
+  },
+  {
+    "position": 156,
+    "name": "Warzywa podsmażane rozmaitości",
+    "price": {
+      "zl": 15,
+      "gr": 50
+    }
+  },
+  {
+    "position": 157,
+    "name": "Brokuły podsmażane z czosnkiem",
+    "price": {
+      "zl": 15,
+      "gr": 99
+    }
+  },
+  {
+    "position": 158,
+    "name": "Warzywa podsmażane po wiet.",
+    "price": {
+      "zl": 15,
+      "gr": 50
+    }
+  },
+  {
+    "position": 159,
+    "name": "Omlet A-Dong bez mięsa",
+    "price": {
+      "zl": 14,
+      "gr": 99
+    }
+  },
+  {
+    "position": 160,
+    "name": "Ryż biały",
+    "price": {
+      "zl": 3,
       "gr": 0
     }
   },
   {
-    "position": "44",
-    "name": "Krewetki curry po thailandzku",
+    "position": 161,
+    "name": "Frytki",
     "price": {
-      "zl": 25,
+      "zl": 5,
       "gr": 0
     }
   },
   {
-    "position": "45",
-    "name": "Krewetki na zielonym curry",
+    "position": 162,
+    "name": "Makaron sojowy zastępczy",
     "price": {
-      "zl": 25,
+      "zl": 3,
+      "gr": 50
+    }
+  },
+  {
+    "position": 163,
+    "name": "Makaron sojowy moczony",
+    "price": {
+      "zl": 6,
       "gr": 0
     }
   },
   {
-    "position": "46",
-    "name": "Krewetki na czerwonym curry",
+    "position": 164,
+    "name": "Ryż smażony z warzywami (mały )",
     "price": {
-      "zl": 25,
+      "zl": 5,
       "gr": 0
     }
   },
   {
-    "position": "47",
-    "name": "Krewetki słodko-kwaśne",
+    "position": 165,
+    "name": "Ryż smażony zastępczy",
     "price": {
-      "zl": 25,
+      "zl": 3,
       "gr": 0
     }
   },
   {
-    "position": "48",
-    "name": "Krewetki królewskie (7 sztuk)",
+    "position": 166,
+    "name": "Surówka z białej kapusty",
     "price": {
-      "zl": 28,
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 167,
+    "name": "Sos słodko-kwaśny",
+    "price": {
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 168,
+    "name": "Sos pikantny",
+    "price": {
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 169,
+    "name": "Chipsy krewetkowe",
+    "price": {
+      "zl": 6,
       "gr": 0
     }
   },
   {
-    "position": "49",
-    "name": "Krewetki w cieście sezamowym (7 sztuk)",
+    "position": 170,
+    "name": "Banany w cieście",
     "price": {
-      "zl": 28,
+      "zl": 7,
       "gr": 0
     }
   },
   {
-    "position": "50",
-    "name": "Krewetki w kokosowej panierce (7 sztuk)",
+    "position": 171,
+    "name": "Ananasy w cieście",
     "price": {
-      "zl": 28,
+      "zl": 7,
+      "gr": 0
+    }
+  },
+  {
+    "position": 172,
+    "name": "Jabłko w cieście",
+    "price": {
+      "zl": 7,
+      "gr": 0
+    }
+  },
+  {
+    "position": 173,
+    "name": "Ryz bialy",
+    "price": {
+      "zl": 3,
+      "gr": 0
+    }
+  },
+  {
+    "position": 174,
+    "name": "Frytki",
+    "price": {
+      "zl": 5,
+      "gr": 0
+    }
+  },
+  {
+    "position": 175,
+    "name": "Makaron sojowy zastepczy",
+    "price": {
+      "zl": 3,
+      "gr": 50
+    }
+  },
+  {
+    "position": 176,
+    "name": "Makaron sojowy moczony",
+    "price": {
+      "zl": 6,
+      "gr": 0
+    }
+  },
+  {
+    "position": 177,
+    "name": "Ryz smażony z warzywami ( mały )",
+    "price": {
+      "zl": 5,
+      "gr": 0
+    }
+  },
+  {
+    "position": 178,
+    "name": "Ryz smazony zastepczy",
+    "price": {
+      "zl": 3,
+      "gr": 0
+    }
+  },
+  {
+    "position": 179,
+    "name": "Surowka z bialej kapusty",
+    "price": {
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 180,
+    "name": "Sos slodko-kwasny (80ml)",
+    "price": {
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 181,
+    "name": "Sos pikantny (80ml)",
+    "price": {
+      "zl": 2,
+      "gr": 50
+    }
+  },
+  {
+    "position": 182,
+    "name": "Chipsy krewetkowe (12szt)",
+    "price": {
+      "zl": 6,
+      "gr": 0
+    }
+  },
+  {
+    "position": 183,
+    "name": "herbata ( lipton,dilmah )",
+    "price": {
+      "zl": 4,
+      "gr": 0
+    }
+  },
+  {
+    "position": 184,
+    "name": "Herbata Zielona",
+    "price": {
+      "zl": 6,
+      "gr": 0
+    }
+  },
+  {
+    "position": 185,
+    "name": "Kawa sypana, rozpuszczalna",
+    "price": {
+      "zl": 5,
+      "gr": 0
+    }
+  },
+  {
+    "position": 186,
+    "name": "Kawa z smietana",
+    "price": {
+      "zl": 5,
+      "gr": 50
+    }
+  },
+  {
+    "position": 187,
+    "name": "Cola 0,2 l",
+    "price": {
+      "zl": 3,
+      "gr": 0
+    }
+  },
+  {
+    "position": 188,
+    "name": "Cola,Fanta,Sprite 0,50",
+    "price": {
+      "zl": 4,
+      "gr": 0
+    }
+  },
+  {
+    "position": 189,
+    "name": "Mrozona herbata Nestea 0,5 l",
+    "price": {
+      "zl": 4,
+      "gr": 0
+    }
+  },
+  {
+    "position": 190,
+    "name": "Pepsi 0,5l",
+    "price": {
+      "zl": 4,
+      "gr": 0
+    }
+  },
+  {
+    "position": 191,
+    "name": "Pepsi puszka 0,3l",
+    "price": {
+      "zl": 3,
+      "gr": 0
+    }
+  },
+  {
+    "position": 192,
+    "name": "Woda ( gaz.niegaz.) 0,3l",
+    "price": {
+      "zl": 3,
+      "gr": 0
+    }
+  },
+  {
+    "position": 193,
+    "name": "Fortuna 0,3l",
+    "price": {
+      "zl": 3,
+      "gr": 0
+    }
+  },
+  {
+    "position": 194,
+    "name": "PADTHAI z kurczakiem",
+    "price": {
+      "zl": 20,
+      "gr": 0
+    }
+  },
+  {
+    "position": 195,
+    "name": "PADTHAI z wolowiną",
+    "price": {
+      "zl": 22,
+      "gr": 0
+    }
+  },
+  {
+    "position": 196,
+    "name": "PADTHAI z krewetkami",
+    "price": {
+      "zl": 24,
       "gr": 0
     }
   }
