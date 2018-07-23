@@ -1,145 +1,190 @@
 [
   {
-    "position": "1",
-    "name": "Burger Specjal",
-    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 16,
-      "gr": 0
-    }
-  },
-  {
-    "position": "2",
-    "name": "Burger Wege",
-    "description": "Bułka pszenna/grahamka/maślana,  mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, 200 gramów pieczeni orzechowo – warzywnej.",
-    "price": {
-      "zl": 18,
-      "gr": 0
-    }
-  },
-  {
-    "position": "3",
-    "name": "Burger Ostry",
-    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, marynowana papryka jalapeño, chilli, sos Pimento, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 17,
-      "gr": 0
-    }
-  },
-  {
-    "position": "4",
-    "name": "Burger Hawajski",
-    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, świeży grillowany ananas, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 17,
-      "gr": 0
-    }
-  },
-  {
-    "position": "5",
-    "name": "Burger Włoski",
-    "description": "Bułka pszenna/grahamka/maślana, ser mozzarella, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, świeża bazylia, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 18,
-      "gr": 0
-    }
-  },
-  {
-    "position": "6",
-    "name": "Burger Morena",
-    "description": "Bułka pszenna/grahamka/maślana, ser lazur, mix sałat, pomidor, czerwona cebula, ogórek kwaszony,  prażona cebulka, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 18,
-      "gr": 0
-    }
-  },
-  {
-    "position": "7",
-    "name": "Burger Słodki Góral",
-    "description": "Bułka pszenna/grahamka/maślana, ser oscypek, mix sałat,  czerwona cebula, borówka, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 18,
-      "gr": 0
-    }
-  },
-  {
-    "position": "8",
-    "name": "Burger Karmel",
-    "description": "Bułka pszenna/grahamka/maślana, norweski kozi brązowy ser karmelowy, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, 180 gramów wołowiny.",
-    "price": {
-      "zl": 20,
-      "gr": 0
-    }
-  },
-  {
-    "position": "9",
-    "name": "Burger Double Trouble",
-    "description": "Bułka pszenna/grahamka/maślana, 2x ser cheddar, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, 2x bekon, sos musztardowo – miodowy, 180 gramów wołowiny.",
-    "price": {
-      "zl": 20,
-      "gr": 0
-    }
-  },
-  {
-    "position": "10",
-    "name": "Burger Nacho",
-    "description": "Bułka pszenna/grahamka/maślana, ser cheddar, mix sałat, pomidor, czerwona cebula, gorący sos serowy, nachosy, 180 gramów wołowiny.",
-    "price": {
-      "zl": 20,
-      "gr": 0
-    }
-  },
-  {
-    "position": "11",
-    "name": "Burger Dziki",
-    "description": "Bułka pszenna/grahamka/maślana, 180 gramowy kotlet z 100% mięsa dzika, ser cheddar, czerwona cebulka, mix sałat, ogórek kwaszony nasz autorski majonezowy sos do dziczyzny.",
-    "price": {
-      "zl": 20,
-      "gr": 0
-    }
-  },
-  {
-    "position": "12",
-    "name": "Burger Que Sera Sera",
-    "description": "180 gramów wołowiny, dodatkowy kotlet z ciągnącego się sera, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos tatarski, bułka graham/pszenna/maślana.",
+    "position": 1,
+    "name": "Burger miesiąca – Ancymon",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, grillowany ananas w posypce z cynamonu, brązowego cukru i papryki chilli, pasta z awokado plastry grillowanego boczku, roszponka, sos chilli mayo",
     "price": {
       "zl": 22,
       "gr": 0
     }
   },
   {
-    "position": "13",
-    "name": "Burger Szefa",
-    "description": "180 gramów wołowiny, norweski kozi brązowy ser karmelowy,2x bekon, marynowane papryczki jalapeño, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue, bułka graham/pszenna/maślana.",
+    "position": 2,
+    "name": "Burger Specjal",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, ser cheddar, mix sałat, ogórek kwaszony, czerwona cebulka, pomidor, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 17,
+      "gr": 0
+    }
+  },
+  {
+    "position": 3,
+    "name": "Burger Ostry",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, marynowana papryka jalapeño, ser cheddar, mix sałat, pomidor, czerwona cebulka, ogórek kwaszony, sos ostry, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": 4,
+    "name": "Burger Hawajski",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, grillowany ananas, ser cheddar, mix sałat, pomidor, czerwona cebulka, ogórek kwaszony, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": 5,
+    "name": "Burger Wege",
+    "description": "Bułka pszenna/graham/maślana, 200 gramów pieczeni orzechowo-warzywnej, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": 6,
+    "name": "Burger Włoski",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, ser mozzarella, świeża bazylia, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": 7,
+    "name": "Burger Morena",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, prażona cebulka, ser lazur, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": 8,
+    "name": "Burger Słodki Góral",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, ser oscypek, borówka, mix sałat, czerwona cebula, sos barbecue",
+    "price": {
+      "zl": 19,
+      "gr": 0
+    }
+  },
+  {
+    "position": 9,
+    "name": "Burger Forfiter",
+    "description": "Bułka pszenna/graham/maślana panierowane polędwiczki kurczaka, pomidor, czerwona cebulka, ogórek konserwowy, sałata lodowa, majonez, sos barbecue",
+    "price": {
+      "zl": 20,
+      "gr": 0
+    }
+  },
+  {
+    "position": 10,
+    "name": "Burger Karmel",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, norweski kozi brązowy ser karmelowy, mix sałat, pomidor, czerwona cebulka, ogórek kwaszony, sos limonkowy, sos barbecue",
+    "price": {
+      "zl": 21,
+      "gr": 0
+    }
+  },
+  {
+    "position": 11,
+    "name": "Burger Dzik",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów mięsa z dzika, ser cheddar, mix sałat, czerwona cebula, ogórek kwaszony, sos majonezowo-pieprzowy",
+    "price": {
+      "zl": 21,
+      "gr": 0
+    }
+  },
+  {
+    "position": 12,
+    "name": "Burger Double Trouble",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, 2x bekon, 2x ser cheddar, mix sałat, pomidor, czerwona cebulka, ogórek kwaszony, sos musztardowo-miodowy",
+    "price": {
+      "zl": 22,
+      "gr": 0
+    }
+  },
+  {
+    "position": 13,
+    "name": "Nacho",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, nachosy, ser cheddar, marynowana papryka jalapeño, mix sałat, pomidor, czerwona cebulka, gorący sos serowy, sos barbecue",
+    "price": {
+      "zl": 22,
+      "gr": 0
+    }
+  },
+  {
+    "position": 14,
+    "name": "Que Sera Sera",
+    "description": "180 gramów wołowiny, dodatkowy kotlet z ciągnącego się sera, mix sałat, pomidor, czerwona cebula, ogórek kwaszony, sos tatarski, bułka graham/pszenna/maślana.",
     "price": {
       "zl": 23,
       "gr": 0
     }
   },
   {
-    "position": "14",
-    "name": "Burger miesiąca - Potejto",
-    "description": "180 gramów wołowiny, dwa plastry boczku, frytki, dwa plastry Cheddara, sałata lodowa, sałatka szwedzka, ketchup, majonez, bułka graham/pszenna/maślana.",
+    "position": 15,
+    "name": "Burger Szefa",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, norweski kozi ser karmelowy, 2x bekon, marynowana papryka jalapeño, mix sałat, ogórek kwaszony, czerwona cebulka, pomidor, sos limonkowy, sos barbecue",
     "price": {
-      "zl": 22,
+      "zl": 25,
       "gr": 0
     }
   },
   {
-    "position": "15",
-    "name": "Frytki Małe",
-    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł.",
+    "position": 16,
+    "name": "Burger Gangsta",
+    "description": "Bułka pszenna/graham/maślana, 2x kotlet, 2x bekon, 4x cheddar, mix sałat, czerwona cebulka, pomidor, ogórek kwaszony, dowolny sos",
+    "price": {
+      "zl": 30,
+      "gr": 0
+    }
+  },
+  {
+    "position": 17,
+    "name": "FRYTKI BELGIJSKIE I PRZEKĄSKI - Małe",
+    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł. Gorące, ciągnące się przekąski serowe oraz NOWOŚĆ Nachosy z mocno pikantną, autorską salsą pomidorową",
     "price": {
       "zl": 6,
       "gr": 0
     }
   },
   {
-    "position": "16",
-    "name": "Frytki Duże",
-    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł.",
+    "position": 18,
+    "name": "FRYTKI BELGIJSKIE I PRZEKĄSKI - Duże",
+    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł. Gorące, ciągnące się przekąski serowe oraz NOWOŚĆ Nachosy z mocno pikantną, autorską salsą pomidorową",
     "price": {
       "zl": 9,
+      "gr": 0
+    }
+  },
+  {
+    "position": 19,
+    "name": "FRYTKI BELGIJSKIE I PRZEKĄSKI - Sticks",
+    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł. Gorące, ciągnące się przekąski serowe oraz NOWOŚĆ Nachosy z mocno pikantną, autorską salsą pomidorową",
+    "price": {
+      "zl": 9,
+      "gr": 0
+    }
+  },
+  {
+    "position": 20,
+    "name": "FRYTKI BELGIJSKIE I PRZEKĄSKI - Camembert",
+    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł. Gorące, ciągnące się przekąski serowe oraz NOWOŚĆ Nachosy z mocno pikantną, autorską salsą pomidorową",
+    "price": {
+      "zl": 9,
+      "gr": 0
+    }
+  },
+  {
+    "position": 21,
+    "name": "FRYTKI BELGIJSKIE I PRZEKĄSKI - Nachosy",
+    "description": "Świeże chrupiące niemrożone frytki z belgijskiej odmiany ziemniaków. Wraz z naszymi autorskimi sosami. Do wyboru sos: bazyliowy, limonkowy, ketchup, barbecue, musztardowo – miodowy oraz serowy – płatny dodatkowo 2 zł. Gorące, ciągnące się przekąski serowe oraz NOWOŚĆ Nachosy z mocno pikantną, autorską salsą pomidorową",
+    "price": {
+      "zl": 8,
       "gr": 0
     }
   }
