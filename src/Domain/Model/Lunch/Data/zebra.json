@@ -1,47 +1,80 @@
 [
   {
-    "position": "1",
-    "name": "Klasyczna zebra",
+    "position": 1,
+    "name": "Klasyczna Zebra",
+    "description": "Mięso 190g, mix sałat, pomidor, ogórek kiszony, czerwona cebula, sos amerykański",
     "price": {
       "zl": 15,
       "gr": 0
     }
   },
   {
-    "position": "2",
-    "name": "Ostra zebra",
+    "position": 2,
+    "name": "Ostra Zebra",
+    "description": "Mięso 190g, mix sałat, papryczki jalapeno, pomidor, ogórek kiszony, czerwona cebula, sos ostry",
     "price": {
       "zl": 16,
       "gr": 0
     }
   },
   {
-    "position": "3",
-    "name": "Ostra w ch*** zebra",
+    "position": 3,
+    "name": "Ostra w Ch*** Zebra",
+    "description": "Mięso 190g, mix sałat, papryczki jalapeno, pomidor, ogórek kiszony, czerwona cebula, super ostry sos",
     "price": {
       "zl": 18,
       "gr": 0
     }
   },
   {
-    "position": "4",
-    "name": "Słodka zebra",
+    "position": 4,
+    "name": "Słodka Zebra",
+    "description": "Mięso 190g, świeży grilowany ananas, mix sałat, pomidor, ogórek kiszony, czerwona cebula, łagodny sos",
     "price": {
       "zl": 16,
       "gr": 0
     }
   },
   {
-    "position": "5",
-    "name": "Serowa zebra",
+    "position": 5,
+    "name": "Serowa Zebra",
+    "description": "Mięso 190g, 3x ser cheddar, mix sałat, pomidor, ogórek kiszony, czerwona cebula, łagodny sos",
     "price": {
       "zl": 18,
       "gr": 0
     }
   },
   {
-    "position": "6",
-    "name": "Gruba zebra",
+    "position": 6,
+    "name": "Do Chrzanu Zebra",
+    "description": "Mięso 190g, bekon, ser cheddar, mix sałat, pomidor, ogórek kiszony, czerwona cebula, sos chrzanowy",
+    "price": {
+      "zl": 18,
+      "gr": 0
+    }
+  },
+  {
+    "position": 7,
+    "name": "Gooral Marcina",
+    "description": "Mięso 190g, ser wędzony, żurawina, mix sałat, pomidor, ogórek kiszony, czerwona cebula, sos bbq",
+    "price": {
+      "zl": 20,
+      "gr": 0
+    }
+  },
+  {
+    "position": 8,
+    "name": "Burger Szefa",
+    "description": "Mięso 190g, 2x bekon, duszona cebula, ser cheddar, mix sałat, ogórek kiszony, sos bbq",
+    "price": {
+      "zl": 20,
+      "gr": 0
+    }
+  },
+  {
+    "position": 9,
+    "name": "Gruba Zebra",
+    "description": "Dowolny burger w podwójnej wersji",
     "price": {
       "zl": 26,
       "gr": 0
