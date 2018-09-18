@@ -1,8 +1,8 @@
 [
   {
     "position": 1,
-    "name": "Burger miesiąca – Ancymon",
-    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, grillowany ananas w posypce z cynamonu, brązowego cukru i papryki chilli, pasta z awokado plastry grillowanego boczku, roszponka, sos chilli mayo",
+    "name": "Burger miesiąca – Koziak",
+    "description": "Bułka pszenna/graham/maślana, 180 gramów wołowiny, grillowany boczek, podsmażana kapusta z kminkiem i jałowcem, kozi ser, powidła śliwkowe, czerwona cebulka, sos barbecue",
     "price": {
       "zl": 22,
       "gr": 0
