@@ -3,7 +3,7 @@ FROM php:7-cli
 ENV COMPOSER_VERSION 1.2.0
 
 RUN apt-get update \
-    && apt-get install -y git libssl-dev zlib1g-dev libicu-dev g++ \
+    && apt-get install -y git g++ libicu-dev libssl-dev libzip-dev zlib1g-dev \
     && pecl install apcu \
     && docker-php-ext-enable apcu \
     && pecl install xdebug \
